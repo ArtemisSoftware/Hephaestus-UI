@@ -32,7 +32,7 @@ fun StoriesApp(){
                 Image(
                     painter = painterResource(id = listOfImages[index]),
                     contentDescription = null,
-//                    contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
             }

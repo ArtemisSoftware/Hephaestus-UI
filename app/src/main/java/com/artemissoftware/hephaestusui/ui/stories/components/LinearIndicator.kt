@@ -15,16 +15,19 @@ fun LinearIndicator(
     modifier: Modifier,
     indicatorBackgroundColor: Color,
     indicatorProgressColor: Color,
+    hideIndicators: Boolean = false
 ){
 
-    LinearProgressIndicator(
-        backgroundColor = indicatorBackgroundColor,
-        color = indicatorProgressColor,
-        modifier = modifier
-            .padding(vertical = 12.dp)
-            .clip(shape = RoundedCornerShape(12.dp)),
+    if(!hideIndicators) {
+        LinearProgressIndicator(
+            backgroundColor = indicatorBackgroundColor,
+            color = indicatorProgressColor,
+            modifier = modifier
+                .padding(vertical = 12.dp)
+                .clip(shape = RoundedCornerShape(12.dp)),
 //        progress = animatedProgress
-    )
+        )
+    }
 }
 
 
@@ -32,14 +35,13 @@ fun LinearIndicator(
 @Composable
 private fun DefaultPreview() {
     LinearIndicator(
-
         modifier = Modifier,
 //        startProgress: Boolean = false,
         indicatorBackgroundColor = Color.Blue,
         indicatorProgressColor = Color.Red,
 //    slideDurationInSeconds: Long,
 //    onPauseTimer: Boolean = false,
-//    hideIndicators: Boolean = false,
+        hideIndicators = false,
 //    onAnimationEnd: () -> Unit
     )
 }

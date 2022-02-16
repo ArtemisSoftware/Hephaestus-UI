@@ -8,18 +8,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.stories.components.LinearIndicator
 import com.artemissoftware.hephaestusui.ui.stories.components.StoryImage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerScope
-import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 
 @ExperimentalPagerApi
 @Composable
 fun StoriesScreen(
     numberOfPages: Int,
+    hideIndicators: Boolean = false,
+    indicatorBackgroundColor: Color = Color.LightGray,
+    indicatorProgressColor: Color = Color.White,
+    spaceBetweenIndicator: Dp = 4.dp,
     content: @Composable PagerScope.(Int) -> Unit
 ){
 
@@ -44,14 +49,20 @@ fun StoriesScreen(
 
 
         Row(
-            modifier = Indicators(),
+            modifier = Indicators(
+                hideIndicators = hideIndicators
+            ),
             horizontalArrangement = Arrangement.SpaceBetween
         ){
 
+            Spacer(modifier = Modifier.padding(spaceBetweenIndicator))
+
             ListOfIndicators(
                 numberOfPages = numberOfPages,
-                indicatorBackgroundColor = Color.Blue,
-                indicatorProgressColor = Color.Red
+                indicatorBackgroundColor = indicatorBackgroundColor,
+                indicatorProgressColor = indicatorProgressColor,
+                hideIndicators = hideIndicators,
+                spaceBetweenIndicator = spaceBetweenIndicator
             )
 
         }
@@ -66,6 +77,8 @@ private fun RowScope.ListOfIndicators(
     numberOfPages: Int,
     indicatorBackgroundColor: Color,
     indicatorProgressColor: Color,
+    hideIndicators: Boolean,
+    spaceBetweenIndicator: Dp,
 ) {
 
 
@@ -78,7 +91,7 @@ private fun RowScope.ListOfIndicators(
             indicatorProgressColor = indicatorProgressColor,
 //        slideDurationInSeconds,
 //        pauseTimer,
-//        hideIndicators
+            hideIndicators = hideIndicators
         )
 //    {
 //        coroutineScope.launch {
@@ -96,6 +109,8 @@ private fun RowScope.ListOfIndicators(
 //        }
 //    }
 
+        Spacer(modifier = Modifier.padding(spaceBetweenIndicator))
+
     }
 }
 
@@ -105,36 +120,31 @@ private fun RowScope.ListOfIndicators(
 private fun DefaultPreview() {
     StoriesScreen(
         numberOfPages = 3,
+        hideIndicators = false,
         content = { index ->
             Image(
-                painter = painterResource(id = R.drawable.artemis_2),
+                painter = painterResource(id = R.drawable.artemis),
                 contentDescription = null,
-                //contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
         }
+
     )
 }
 
 //@OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 //@Composable
 //fun Stories(
-//    numberOfPages: Int,
 //    indicatorModifier: Modifier = Modifier
 //        .padding(top = 12.dp, bottom = 12.dp)
 //        .clip(RoundedCornerShape(12.dp)),
-//    spaceBetweenIndicator: Dp = 4.dp,
-//    indicatorBackgroundColor: Color = Color.LightGray,
-//    indicatorProgressColor: Color = Color.White,
 //    indicatorBackgroundGradientColors: List<Color> = emptyList(),
 //    slideDurationInSeconds: Long = 5,
 //    touchToPause: Boolean = true,
-//    hideIndicators: Boolean = false,
 //    onEveryStoryChange: ((Int) -> Unit)? = null,
 //    onComplete: () -> Unit,
-//    content: @Composable (Int) -> Unit,
 //) {
-//    val pagerState = rememberPagerState(pageCount = numberOfPages)
 //    val coroutineScope = rememberCoroutineScope()
 //
 //    var pauseTimer by remember {
@@ -142,28 +152,7 @@ private fun DefaultPreview() {
 //    }
 //
 //    Box(modifier = Modifier.fillMaxSize()) {
-//        //Full screen content behind the indicator
-//        StoryImage(pagerState = pagerState, onTap = {
-//            if (touchToPause)
-//                pauseTimer = it
-//        }, content)
-//
-//        //Indicator based on the number of items
-//        val modifier =
-//            if (hideIndicators) {
-//                Modifier.fillMaxWidth()
-//            } else {
-//                Modifier
-//                    .fillMaxWidth()
-//                    .background(
-//                        brush = Brush.verticalGradient(
-//                            if (indicatorBackgroundGradientColors.isEmpty()) listOf(
-//                                Color.Black,
-//                                Color.Transparent
-//                            ) else indicatorBackgroundGradientColors
-//                        )
-//                    )
-//            }
+
 //
 //        Row(
 //            modifier = modifier,
@@ -193,16 +182,11 @@ private fun DefaultPreview() {
 //@OptIn(ExperimentalPagerApi::class)
 //@Composable
 //private fun RowScope.ListOfIndicators(
-//    numberOfPages: Int,
 //    indicatorModifier: Modifier,
-//    indicatorBackgroundColor: Color,
-//    indicatorProgressColor: Color,
 //    slideDurationInSeconds: Long,
 //    pauseTimer: Boolean,
-//    hideIndicators: Boolean,
 //    coroutineScope: CoroutineScope,
 //    pagerState: PagerState,
-//    spaceBetweenIndicator: Dp,
 //    onEveryStoryChange: ((Int) -> Unit)? = null,
 //    onComplete: () -> Unit,
 //) {
@@ -214,11 +198,8 @@ private fun DefaultPreview() {
 //        LinearIndicator(
 //            modifier = indicatorModifier.weight(1f),
 //            index == currentPage,
-//            indicatorBackgroundColor,
-//            indicatorProgressColor,
 //            slideDurationInSeconds,
 //            pauseTimer,
-//            hideIndicators
 //        ) {
 //            coroutineScope.launch {
 //
@@ -244,14 +225,14 @@ private fun DefaultPreview() {
  * Indicator based on the number of items
  */
 @Composable
-private fun Indicators(): Modifier {
+private fun Indicators(hideIndicators: Boolean): Modifier {
 
-        val modifier =
-//            if (hideIndicators) {
-//                Modifier.fillMaxWidth()
-//            } else {
-                Modifier
-                    .fillMaxWidth()
+    return if (hideIndicators) {
+        Modifier
+            .fillMaxWidth()
+    } else {
+        Modifier
+            .fillMaxWidth()
 //                    .background(
 //                        brush = Brush.verticalGradient(
 //                            if (indicatorBackgroundGradientColors.isEmpty()) listOf(
@@ -260,8 +241,6 @@ private fun Indicators(): Modifier {
 //                            ) else indicatorBackgroundGradientColors
 //                        )
 //                    )
-//            }
-
-    return modifier
+    }
 
 }
