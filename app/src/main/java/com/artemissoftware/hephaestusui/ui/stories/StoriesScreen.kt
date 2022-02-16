@@ -1,27 +1,55 @@
 package com.artemissoftware.hephaestusui.ui.stories
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.stories.components.LinearIndicator
+import com.artemissoftware.hephaestusui.ui.stories.components.StoryImage
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.PagerScope
+import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.rememberPagerState
 
+@ExperimentalPagerApi
 @Composable
-fun StoriesScreen(){
+fun StoriesScreen(
+    numberOfPages: Int,
+    content: @Composable PagerScope.(Int) -> Unit
+){
+
+
+    val pagerState = rememberPagerState(pageCount = numberOfPages)
+
 
     Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
 
+        //Full screen content behind the indicator
+        StoryImage(
+            pagerState = pagerState,
+//                onTap = {
+//                    if (touchToPause)
+//                        pauseTimer = it
+//                },
+            content = content
+        )
+
+
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Indicators(),
+            horizontalArrangement = Arrangement.SpaceBetween
         ){
 
             ListOfIndicators(
-                numberOfPages = 1,
+                numberOfPages = numberOfPages,
                 indicatorBackgroundColor = Color.Blue,
                 indicatorProgressColor = Color.Red
             )
@@ -43,7 +71,7 @@ private fun RowScope.ListOfIndicators(
 
     for (index in 0 until numberOfPages) {
         LinearIndicator(
-            modifier = Modifier,
+            modifier = Modifier.weight(1f),
 //        modifier = indicatorModifier.weight(1f),
 //        index == currentPage,
             indicatorBackgroundColor = indicatorBackgroundColor,
@@ -75,7 +103,17 @@ private fun RowScope.ListOfIndicators(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    StoriesScreen()
+    StoriesScreen(
+        numberOfPages = 3,
+        content = { index ->
+            Image(
+                painter = painterResource(id = R.drawable.artemis_2),
+                contentDescription = null,
+                //contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    )
 }
 
 //@OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
@@ -200,3 +238,30 @@ private fun DefaultPreview() {
 //        Spacer(modifier = Modifier.padding(spaceBetweenIndicator))
 //    }
 //}
+
+
+/**
+ * Indicator based on the number of items
+ */
+@Composable
+private fun Indicators(): Modifier {
+
+        val modifier =
+//            if (hideIndicators) {
+//                Modifier.fillMaxWidth()
+//            } else {
+                Modifier
+                    .fillMaxWidth()
+//                    .background(
+//                        brush = Brush.verticalGradient(
+//                            if (indicatorBackgroundGradientColors.isEmpty()) listOf(
+//                                Color.Black,
+//                                Color.Transparent
+//                            ) else indicatorBackgroundGradientColors
+//                        )
+//                    )
+//            }
+
+    return modifier
+
+}

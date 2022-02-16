@@ -21,7 +21,8 @@ fun StoryImage(
 
     HorizontalPager(
         state = pagerState,
-        content = content)
+        content = content
+    )
 }
 
 @ExperimentalPagerApi
