@@ -2,7 +2,8 @@ package com.artemissoftware.hephaestusui.ui.stories
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -17,6 +18,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerScope
 import com.google.accompanist.pager.rememberPagerState
 
+@ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @Composable
 fun StoriesScreen(
@@ -25,11 +27,15 @@ fun StoriesScreen(
     indicatorBackgroundColor: Color = Color.LightGray,
     indicatorProgressColor: Color = Color.White,
     spaceBetweenIndicator: Dp = 4.dp,
+    slideDurationInSeconds: Long = 5,
+    touchToPause: Boolean = true,
+    onEveryStoryChange: ((Int) -> Unit)? = null,
     content: @Composable PagerScope.(Int) -> Unit
 ){
 
 
     val pagerState = rememberPagerState(pageCount = numberOfPages)
+    var pauseTimer by remember { mutableStateOf(false) }
 
 
     Box(
@@ -40,10 +46,10 @@ fun StoriesScreen(
         //Full screen content behind the indicator
         StoryImage(
             pagerState = pagerState,
-//                onTap = {
-//                    if (touchToPause)
-//                        pauseTimer = it
-//                },
+            onTap = {
+                if (touchToPause)
+                    pauseTimer = it
+            },
             content = content
         )
 
@@ -62,7 +68,10 @@ fun StoriesScreen(
                 indicatorBackgroundColor = indicatorBackgroundColor,
                 indicatorProgressColor = indicatorProgressColor,
                 hideIndicators = hideIndicators,
-                spaceBetweenIndicator = spaceBetweenIndicator
+                spaceBetweenIndicator = spaceBetweenIndicator,
+                onEveryStoryChange = onEveryStoryChange,
+                pauseTimer = pauseTimer,
+                slideDurationInSeconds = slideDurationInSeconds
             )
 
         }
@@ -79,41 +88,48 @@ private fun RowScope.ListOfIndicators(
     indicatorProgressColor: Color,
     hideIndicators: Boolean,
     spaceBetweenIndicator: Dp,
+    pauseTimer: Boolean,
+    slideDurationInSeconds: Long,
+    onEveryStoryChange: ((Int) -> Unit)? = null,
 ) {
 
+    var currentPage by remember { mutableStateOf(0) }
 
     for (index in 0 until numberOfPages) {
+
         LinearIndicator(
             modifier = Modifier.weight(1f),
 //        modifier = indicatorModifier.weight(1f),
 //        index == currentPage,
             indicatorBackgroundColor = indicatorBackgroundColor,
             indicatorProgressColor = indicatorProgressColor,
-//        slideDurationInSeconds,
-//        pauseTimer,
-            hideIndicators = hideIndicators
+            slideDurationInSeconds = slideDurationInSeconds,
+            onPauseTimer = pauseTimer,
+            hideIndicators = hideIndicators,
+            onAnimationEnd = {
+//                coroutineScope.launch {
+//
+//                    currentPage++
+//
+//                    if (currentPage < numberOfPages) {
+                        onEveryStoryChange?.invoke(currentPage)
+//                        pagerState.animateScrollToPage(currentPage)
+//                    }
+//
+//                    if (currentPage == numberOfPages) {
+//                        onComplete()
+//                    }
+//                }
+
+            }
         )
-//    {
-//        coroutineScope.launch {
-//
-//            currentPage++
-//
-//            if (currentPage < numberOfPages) {
-//                onEveryStoryChange?.invoke(currentPage)
-//                pagerState.animateScrollToPage(currentPage)
-//            }
-//
-//            if (currentPage == numberOfPages) {
-//                onComplete()
-//            }
-//        }
-//    }
 
         Spacer(modifier = Modifier.padding(spaceBetweenIndicator))
 
     }
 }
 
+@ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @Preview(showBackground = true)
 @Composable
