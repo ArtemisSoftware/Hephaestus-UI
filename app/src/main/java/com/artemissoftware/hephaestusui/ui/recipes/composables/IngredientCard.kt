@@ -17,8 +17,7 @@ import androidx.compose.ui.unit.sp
 import com.artemissoftware.hephaestusui.Greeting
 import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.recipes.models.Ingredient
-import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
-import com.artemissoftware.hephaestusui.ui.theme.Shapes
+import com.artemissoftware.hephaestusui.ui.theme.*
 
 @Composable
 fun IngredientCard(
@@ -31,8 +30,8 @@ fun IngredientCard(
         //modifier = modifier.padding(bottom = 16.dp)
     ) {
         Card(
-            shape = Shapes.large,
-            backgroundColor = Color.Red,
+            shape = IngedientShapes.large,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .size(100.dp)
                 .padding(bottom = 8.dp)
@@ -55,7 +54,7 @@ fun IngredientCard(
             text = ingredient.description,
             modifier = Modifier.width(100.dp),
             fontSize = 14.sp,
-            color = Color.DarkGray
+            color = DarkGray
 
         )
 

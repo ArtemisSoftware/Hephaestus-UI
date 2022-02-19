@@ -10,7 +10,7 @@ data class Ingredient(@DrawableRes val icon: Int, val title: String, val descrip
 
         fun getMockList(): List<Ingredient>{
             return listOf(
-                Ingredient(R.drawable.artemis_3, "title", "description")
+                Ingredient(R.drawable.mind, "title", "description")
             )
         }
 
