@@ -22,6 +22,7 @@ fun LinearIndicator(
     indicatorProgressColor: Color,
     slideDurationInSeconds: Long,
     hideIndicators: Boolean = false,
+    startProgress: Boolean = false,
     onPauseTimer: Boolean = false,
     onAnimationEnd: () -> Unit
 ){
@@ -34,8 +35,8 @@ fun LinearIndicator(
     )
 
 
-//    if (startProgress) {
-        LaunchedEffect(key1 = true) {
+    if (startProgress) {
+        LaunchedEffect(key1 = onPauseTimer) {
             while (progress < 1f && isActive && onPauseTimer.not()) {
                 progress += 0.01f
                 delay(delayInMillis)
@@ -43,26 +44,11 @@ fun LinearIndicator(
 
             //When the timer is not paused and animation completes then move to next page.
             if (onPauseTimer.not()) {
-                //delay(200)
-    onAnimationEnd()
+                delay(200)
+                onAnimationEnd()
             }
         }
-//    }
-
-//    if (startProgress) {
-//        LaunchedEffect(key1 = onPauseTimer) {
-//            while (progress < 1f && isActive && onPauseTimer.not()) {
-//                progress += 0.01f
-//                delay(delayInMillis)
-//            }
-//
-//            //When the timer is not paused and animation completes then move to next page.
-//            if (onPauseTimer.not()) {
-//                delay(200)
-//                onAnimationEnd()
-//            }
-//        }
-//    }
+    }
 
 
     if(!hideIndicators) {
@@ -76,58 +62,6 @@ fun LinearIndicator(
         )
     }
 }
-
-
-
-
-//@Composable
-//fun LinearIndicator(modifier: Modifier,
-//                    startProgress: Boolean = false,
-//                    indicatorBackgroundColor: Color,
-//                    indicatorProgressColor: Color,
-//                    slideDurationInSeconds: Long,
-//                    onPauseTimer: Boolean = false,
-//                    hideIndicators: Boolean = false,
-//                    onAnimationEnd: () -> Unit) {
-//
-//    val delayInMillis = rememberSaveable {
-//        (slideDurationInSeconds * 1000) / 100
-//    }
-//
-//    var progress by remember {
-//        mutableStateOf(0.00f)
-//    }
-//
-//    val animatedProgress by animateFloatAsState(targetValue = progress,
-//        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec)
-//
-//
-//    if (startProgress) {
-//        LaunchedEffect(key1 = onPauseTimer) {
-//            while (progress < 1f && isActive && onPauseTimer.not()) {
-//                progress += 0.01f
-//                delay(delayInMillis)
-//            }
-//
-//            //When the timer is not paused and animation completes then move to next page.
-//            if (onPauseTimer.not()) {
-//                delay(200)
-//                onAnimationEnd()
-//            }
-//        }
-//    }
-//
-//    if (hideIndicators.not()) {
-//        LinearProgressIndicator(
-//            backgroundColor = indicatorBackgroundColor,
-//            color = indicatorProgressColor,
-//            modifier = modifier
-//                .padding(top = 12.dp, bottom = 12.dp)
-//                .clip(RoundedCornerShape(12.dp)),
-//            progress = animatedProgress
-//        )
-//    }
-//}
 
 
 @Preview(showBackground = true)

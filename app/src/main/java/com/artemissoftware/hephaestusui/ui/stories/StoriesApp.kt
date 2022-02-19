@@ -21,16 +21,18 @@ fun StoriesApp(){
 
     Surface(color = MaterialTheme.colors.background) {
 
-        val listOfImages = listOf(R.drawable.artemis, R.drawable.artemis_2, R.drawable.artemis_3)
+        val listOfImages = listOf(
+            R.drawable.artemis, R.drawable.artemis_2, R.drawable.artemis_3
+        )
 
         StoriesScreen(
             numberOfPages = listOfImages.size,
             onEveryStoryChange = { position ->
-                Log.i("DATA", "Story Change $position")
+                Log.i("DATA - change", "Story Change $position")
             },
-//            onComplete = {
-//                Log.i("Action", "Completed")
-//            },
+            onComplete = {
+                Log.i("DATA - complete", "Completed")
+            },
             content = { index ->
                 Image(
                     painter = painterResource(id = listOfImages[index]),

@@ -27,6 +27,7 @@ fun StoryImage(
     HorizontalPager(
         state = pagerState,
         content = content,
+        dragEnabled = false,
         modifier = Modifier.pointerInteropFilter {
             when(it.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -42,29 +43,3 @@ fun StoryImage(
     )
 }
 
-@ExperimentalPagerApi
-@Preview(showBackground = true)
-@Composable
-private fun DefaultPreview() {
-    //--StoryImage()
-}
-
-//@ExperimentalComposeUiApi
-//@OptIn(ExperimentalPagerApi::class)
-//@Composable
-//fun StoryImage(pagerState: PagerState, onTap: (Boolean) -> Unit, content: @Composable (Int) -> Unit) {
-//    HorizontalPager(state = pagerState, dragEnabled = false, modifier = Modifier.pointerInteropFilter {
-//        when(it.action) {
-//            MotionEvent.ACTION_DOWN -> {
-//                onTap(true)
-//            }
-//
-//            MotionEvent.ACTION_UP -> {
-//                onTap(false)
-//            }
-//        }
-//        true
-//    }) {
-//        content(it)
-//    }
-//}
