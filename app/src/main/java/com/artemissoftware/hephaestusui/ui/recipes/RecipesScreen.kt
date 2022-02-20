@@ -1,10 +1,8 @@
 package com.artemissoftware.hephaestusui.ui.recipes
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -12,10 +10,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.Greeting
+import com.artemissoftware.hephaestusui.ui.recipes.composables.IconFlatButton
 import com.artemissoftware.hephaestusui.ui.recipes.composables.TabButton
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.IngedientShapes
 import com.artemissoftware.hephaestusui.ui.theme.LightGray
+import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.recipes.composables.ServingCalculator
+import com.artemissoftware.hephaestusui.ui.theme.Pink
 
 @Preview(showBackground = true)
 @Composable
@@ -42,8 +44,14 @@ fun Content(
 //        item {
 //            BasicInfo(recipe)
 //            Description(recipe)
-//            ServingCalculator()
-            IngredientsHeader()
+    Column(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        ServingCalculator()
+        IngredientsHeader()
+    }
+
 //            IngredientsList(recipe)
 //            ShoppingListButton()
 //            Reviews(recipe)
@@ -51,6 +59,9 @@ fun Content(
 //        }
 //    }
 }
+
+
+
 
 
 @Composable
