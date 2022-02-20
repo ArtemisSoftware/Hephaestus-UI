@@ -2,22 +2,19 @@ package com.artemissoftware.hephaestusui.ui.recipes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.artemissoftware.hephaestusui.Greeting
-import com.artemissoftware.hephaestusui.ui.recipes.composables.IconFlatButton
+import com.artemissoftware.hephaestusui.ui.recipes.composables.EasyGrid
 import com.artemissoftware.hephaestusui.ui.recipes.composables.TabButton
-import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.IngedientShapes
 import com.artemissoftware.hephaestusui.ui.theme.LightGray
-import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.recipes.composables.IngredientCard
 import com.artemissoftware.hephaestusui.ui.recipes.composables.ServingCalculator
-import com.artemissoftware.hephaestusui.ui.theme.Pink
+import com.artemissoftware.hephaestusui.ui.recipes.models.Recipe
 
 @Preview(showBackground = true)
 @Composable
@@ -27,7 +24,7 @@ fun RecipesScreen(){
 
     Box {
         Content(
-//            recipe,
+            recipe = Recipe.getMock(),
 //            scrollState
         )
         //ParallaxToolbar(recipe, scrollState)
@@ -37,7 +34,7 @@ fun RecipesScreen(){
 
 @Composable
 fun Content(
-//    recipe: Recipe,
+    recipe: Recipe,
 //    scrollState: LazyListState
 ) {
 //    LazyColumn(contentPadding = PaddingValues(top = AppBarExpendedHeight), state = scrollState) {
@@ -50,9 +47,10 @@ fun Content(
     ) {
         ServingCalculator()
         IngredientsHeader()
+        IngredientsList(recipe = recipe)
     }
 
-//            IngredientsList(recipe)
+//
 //            ShoppingListButton()
 //            Reviews(recipe)
 //            Images()
@@ -61,6 +59,26 @@ fun Content(
 }
 
 
+
+
+
+
+
+
+@Composable
+fun IngredientsList(recipe: Recipe) {
+    EasyGrid(
+        numberOfColumns = 3,
+        items = recipe.ingredients,
+        content = {
+            IngredientCard(
+                ingredient = it,
+                modifier = Modifier
+            )
+        }
+    )
+
+}
 
 
 
