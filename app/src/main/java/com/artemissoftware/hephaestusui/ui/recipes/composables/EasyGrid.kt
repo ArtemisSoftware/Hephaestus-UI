@@ -25,7 +25,6 @@ fun <T> EasyGrid(
                                 modifier = Modifier.weight(1f)
                             ) {
                                 content(items[index + indexColumn])
-                                //--Spacer(Modifier.align(Alignment.BottomEnd).height(16.dp))
                             }
                         }
                         else { //for empty space when there is no more data
@@ -33,7 +32,7 @@ fun <T> EasyGrid(
                         }
                     }
                 }
-                Spacer(Modifier.height(16.dp))
+                if(index != items.size -1) Spacer(Modifier.height(16.dp))
             }
 
         }

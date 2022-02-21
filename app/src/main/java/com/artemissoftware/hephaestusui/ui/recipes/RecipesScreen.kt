@@ -2,10 +2,16 @@ package com.artemissoftware.hephaestusui.ui.recipes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.recipes.composables.EasyGrid
@@ -15,6 +21,7 @@ import com.artemissoftware.hephaestusui.ui.theme.LightGray
 import com.artemissoftware.hephaestusui.ui.recipes.composables.IngredientCard
 import com.artemissoftware.hephaestusui.ui.recipes.composables.ServingCalculator
 import com.artemissoftware.hephaestusui.ui.recipes.models.Recipe
+import com.artemissoftware.hephaestusui.ui.theme.White
 
 @Preview(showBackground = true)
 @Composable
@@ -48,10 +55,11 @@ fun Content(
         ServingCalculator()
         IngredientsHeader()
         IngredientsList(recipe = recipe)
+        ShoppingListButton()
     }
 
 //
-//            ShoppingListButton()
+//
 //            Reviews(recipe)
 //            Images()
 //        }
@@ -59,14 +67,31 @@ fun Content(
 }
 
 
+@Composable
+private fun ShoppingListButton(){
 
+    Button(
+        onClick = {},
+        contentPadding = PaddingValues(),
+        elevation = null,
+        shape = IngedientShapes.small,
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = LightGray,
+            contentColor = Color.Black
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Text(text = "Add to shopping list", modifier = Modifier.padding(8.dp))
+    }
+}
 
 
 
 
 
 @Composable
-fun IngredientsList(recipe: Recipe) {
+private fun IngredientsList(recipe: Recipe) {
     EasyGrid(
         numberOfColumns = 3,
         items = recipe.ingredients,
@@ -77,7 +102,6 @@ fun IngredientsList(recipe: Recipe) {
             )
         }
     )
-
 }
 
 
