@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gusta/AndroidStudioProjects/HephaestusUI/app/src/main/res/drawable/ic_flame.xml" value="0.475" />
         <entry key="..\:/Users/gusta/AndroidStudioProjects/HephaestusUI/app/src/main/res/drawable/ic_minus.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/gusta/AndroidStudioProjects/HephaestusUI/app/src/main/res/drawable/ic_plus.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/gusta/AndroidStudioProjects/HephaestusUI/app/src/main/res/drawable/ic_star.xml" value="0.475" />
       </map>
     </option>
   </component>

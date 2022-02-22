@@ -1,5 +1,6 @@
 package com.artemissoftware.hephaestusui.ui.recipes
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -12,6 +13,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Medium
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.recipes.composables.*
 import com.artemissoftware.hephaestusui.ui.theme.IngedientShapes
 import com.artemissoftware.hephaestusui.ui.theme.LightGray
@@ -43,21 +45,23 @@ fun Content(
 ) {
 //    LazyColumn(contentPadding = PaddingValues(top = AppBarExpendedHeight), state = scrollState) {
 //        item {
-//            BasicInfo(recipe)
+//
 //
     Column(
         modifier = Modifier.padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        BasicInfo(recipe)
         Description(recipe)
         ServingCalculator()
         IngredientsHeader()
         IngredientsList(recipe = recipe)
         ShoppingListButton()
         Reviews(recipe)
+        Images()
     }
 
-//            Images()
+//
 //        }
 //    }
 }
@@ -65,10 +69,24 @@ fun Content(
 
 @Composable
 private fun Images() {
-    Row {
-
-
-
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.strawberry_pie_2),
+            contentDescription = null,
+            modifier = Modifier
+                .weight(1f)
+                .clip(IngedientShapes.small)
+        )
+        Spacer(modifier = Modifier.weight(0.1f))
+        Image(
+            painter = painterResource(id = R.drawable.strawberry_pie_3),
+            contentDescription = null,
+            modifier = Modifier
+                .weight(1f)
+                .clip(IngedientShapes.small)
+        )
     }
 }
 
