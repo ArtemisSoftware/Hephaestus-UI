@@ -3,17 +3,16 @@ App to explore app design in jetpack-compose
 
 ## Designs
     - Stories
+    - Recipes
 
 
 ## App preview:
-
-
 
 
 Stories #1            |  Stories #2            
 :-------------------------:|:----------------------------:
 <img src="images/Stories_1.jpg">    |  <img src="images/Stories_2.jpg"> 
 
-Image #1            |  Image #2             |  Image #3
-:-------------------------:|:----------------------------:|:----------------------------:
-<img src="images/Stories_1.jpg">    |  <img src="images/Stories_2.jpg">     |  <img src="images/Demeter_Recipes_3.jpg"> 
+Recipes #1            |  Recipes #2            
+:-------------------------:|:----------------------------:
+<img src="images/Recipes_1.jpg">    |  <img src="images/Recipes_2.jpg">   

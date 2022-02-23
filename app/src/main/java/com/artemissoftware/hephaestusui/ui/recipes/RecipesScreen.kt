@@ -50,12 +50,12 @@ fun Content(
     LazyColumn(
         contentPadding = PaddingValues(top = AppBarExpendedHeight),
         state = scrollState,
-        modifier = Modifier.padding(horizontal = 16.dp)
+        modifier = Modifier.padding(horizontal = 16.dp).padding(top = 16.dp)
     ) {
 
         item {
             Column(
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+                verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
                 BasicInfo(recipe)
                 Description(recipe)

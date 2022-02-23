@@ -59,75 +59,108 @@ fun ParallaxToolbar(
     ) {
         Column {
 
+            RecipeBanner(
+                recipe = recipe,
+                imageHeight = imageHeight,
+                offsetProgress = offsetProgress
+            )
 
-            Box(
-                modifier = Modifier
-                        .height(imageHeight)
-                        .graphicsLayer {
-                            alpha = 1f - offsetProgress
-                        }
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.strawberry_pie_1),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-
-                Box(
-                    modifier = Modifier
-                            .fillMaxSize()
-                            .background(
-                                Brush.verticalGradient(
-                                    colorStops = arrayOf(
-                                        Pair(0.4f, Transparent),
-                                        Pair(1f, White)
-                                    )
-                                )
-                            )
-                )
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    verticalAlignment = Alignment.Bottom
-                ) {
-                    Text(
-                        text = recipe.category,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier
-                            .clip(IngedientShapes.small)
-                            .background(LightGray)
-                            .padding(vertical = 6.dp, horizontal = 16.dp)
-                    )
-                }
-
-
-            }
-
-
-
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(AppBarCollapsedHeight),
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    recipe.title,
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(horizontal = (16 + 28 * offsetProgress).dp)
-                        .scale(1f - 0.25f * offsetProgress)
-                )
-
-            }
+            TitleBar(
+                recipe = recipe,
+                offsetProgress = offsetProgress
+            )
 
 
         }
     }
+
+    OptionButtons()
+
+}
+
+
+@Composable
+private fun RecipeBanner(
+    recipe: Recipe,
+    imageHeight: Dp,
+    offsetProgress: Float
+){
+    Box(
+        modifier = Modifier
+            .height(imageHeight)
+            .graphicsLayer {
+                alpha = 1f - offsetProgress
+            }
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.strawberry_pie_1),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colorStops = arrayOf(
+                            Pair(0.4f, Transparent),
+                            Pair(1f, White)
+                        )
+                    )
+                )
+        )
+
+        Row(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.Bottom
+        ) {
+            Text(
+                text = recipe.category,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .clip(IngedientShapes.small)
+                    .background(LightGray)
+                    .padding(vertical = 6.dp, horizontal = 16.dp)
+            )
+        }
+
+
+    }
+
+}
+
+
+
+@Composable
+private fun TitleBar(
+    recipe: Recipe,
+    offsetProgress: Float
+){
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(AppBarCollapsedHeight),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            recipe.title,
+            fontSize = 26.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(horizontal = (16 + 28 * offsetProgress).dp)
+                .scale(1f - 0.25f * offsetProgress)
+        )
+
+    }
+}
+
+@Composable
+private fun OptionButtons(){
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
