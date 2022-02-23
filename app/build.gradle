@@ -65,4 +65,5 @@ dependencies {
 
     //Viewpager
     implementation "com.google.accompanist:accompanist-pager:0.18.0"
+    implementation "com.google.accompanist:accompanist-insets:0.18.0"
 }
