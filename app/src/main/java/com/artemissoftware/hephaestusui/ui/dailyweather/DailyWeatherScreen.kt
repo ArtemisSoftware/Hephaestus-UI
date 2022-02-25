@@ -1,25 +1,21 @@
 package com.artemissoftware.hephaestusui.ui.dailyweather
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
-import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.dailyweather.composables.HeaderImage
-import com.artemissoftware.hephaestusui.ui.recipes.composables.BasicInfo
-import com.artemissoftware.hephaestusui.ui.recipes.models.Recipe
-import com.artemissoftware.hephaestusui.ui.theme.IngedientShapes
+import com.artemissoftware.hephaestusui.ui.dailyweather.composables.WeatherSummary
 
 @Composable
 fun DailyWeatherScreen(){
 
-    Column {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         HeaderImage()
-//        MainInfo()
+        WeatherSummary()
 //        InfoTable()
 
 
