@@ -18,6 +18,6 @@ Recipes #1            |  Recipes #2
 :-------------------------:|:----------------------------:
 <img src="images/Recipes_1.jpg">    |  <img src="images/Recipes_2.jpg">   
 
-Recipes #1            
+Daily Weather #1                   
 :-------------------------:
-<img src="images/Daily_Weather_1.jpg">   
+<img src="images/Daily_Weather_1.jpg">   |
