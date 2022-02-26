@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
+import com.artemissoftware.hephaestusui.ui.dailyweather.DailyWeatherScreen
 import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
 import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
@@ -23,8 +24,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             HephaestusUITheme {
-                RecipesScreen()
                 //StoriesApp()
+                //RecipesScreen()
+                DailyWeatherScreen()
             }
         }
     }
