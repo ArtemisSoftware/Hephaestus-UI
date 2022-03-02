@@ -5,6 +5,7 @@ App to explore app design in jetpack-compose
     - Stories
     - Recipes
     - Daily weather
+    - Login
 
 
 ## App preview:
