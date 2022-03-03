@@ -3,6 +3,7 @@ package com.artemissoftware.hephaestusui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -19,13 +20,13 @@ import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 class MainActivity : ComponentActivity() {
+    @ExperimentalFoundationApi
     @ExperimentalMaterialApi
     @ExperimentalComposeUiApi
     @ExperimentalPagerApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //HephaestusUIGeneralTheme()
             HephaestusUILoginTheme()
         }
     }
@@ -41,6 +42,8 @@ fun HephaestusUIGeneralTheme() {
     }
 }
 
+@ExperimentalFoundationApi
+@ExperimentalComposeUiApi
 @Composable
 fun HephaestusUILoginTheme() {
     LoginJetpackComposeTheme {
