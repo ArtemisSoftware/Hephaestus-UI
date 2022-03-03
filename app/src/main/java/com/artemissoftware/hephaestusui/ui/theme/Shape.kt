@@ -15,3 +15,9 @@ val IngedientShapes = Shapes(
     medium = RoundedCornerShape(20.dp),
     large = RoundedCornerShape(24.dp)
 )
+
+val LoginShapes = Shapes(
+    small = RoundedCornerShape(24.dp),
+    medium = RoundedCornerShape(4.dp),
+    large = RoundedCornerShape(0.dp)
+)

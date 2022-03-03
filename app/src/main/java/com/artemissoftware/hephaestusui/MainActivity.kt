@@ -14,6 +14,7 @@ import com.artemissoftware.hephaestusui.ui.dailyweather.DailyWeatherScreen
 import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
 import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
+import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 class MainActivity : ComponentActivity() {
@@ -23,14 +24,29 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            HephaestusUITheme {
-                //StoriesApp()
-                //RecipesScreen()
-                DailyWeatherScreen()
-            }
+            //HephaestusUIGeneralTheme()
+            HephaestusUILoginTheme()
         }
     }
 }
+
+
+@Composable
+fun HephaestusUIGeneralTheme() {
+    HephaestusUITheme {
+        //StoriesApp()
+        //RecipesScreen()
+        DailyWeatherScreen()
+    }
+}
+
+@Composable
+fun HephaestusUILoginTheme() {
+    LoginJetpackComposeTheme {
+
+    }
+}
+
 
 @Composable
 fun Greeting(name: String) {
