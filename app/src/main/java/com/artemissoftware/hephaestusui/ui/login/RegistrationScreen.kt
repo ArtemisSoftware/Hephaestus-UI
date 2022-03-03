@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.login.composables.LoginMenu
 import com.artemissoftware.hephaestusui.ui.login.composables.NavigationBar
 import com.artemissoftware.hephaestusui.ui.login.composables.RegisterForm
+import com.artemissoftware.hephaestusui.ui.login.composables.RegisterOptions
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 
 @ExperimentalFoundationApi
@@ -30,7 +31,7 @@ fun RegistrationScreen() {
 
                 NavigationBar()
                 RegisterForm()
-//                RegisterOptions()
+                RegisterOptions()
             }
 
         }
