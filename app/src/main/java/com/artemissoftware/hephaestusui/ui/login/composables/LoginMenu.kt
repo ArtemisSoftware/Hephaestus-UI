@@ -1,7 +1,8 @@
 package com.artemissoftware.hephaestusui.ui.login.composables
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
@@ -10,8 +11,10 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -23,22 +26,38 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 
 @Composable
-fun LoginMenu() {
+fun LoginMenu(
+    modifier: Modifier = Modifier
+) {
 
     val emailValue = rememberSaveable{ mutableStateOf("") }
     val passwordValue = rememberSaveable{ mutableStateOf("") }
     var passwordVisibility by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
 
+
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
+            .height(400.dp),
+        shape = RoundedCornerShape(
+            topStartPercent = 8,
+            topEndPercent = 8
+        )
     ) {
 
-        Column {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.SpaceEvenly
+        ) {
+
             Text(
                 text = "Welcome Back!",
                 style = MaterialTheme.typography.h4.copy(
@@ -54,7 +73,13 @@ fun LoginMenu() {
             )
 
 
-            Column {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
 
                 TransparentTextField(
                     textFieldValue = emailValue,
@@ -112,7 +137,11 @@ fun LoginMenu() {
                 )
 
 
-                Column {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
 
                     RoundedButton(
                         text = "Login",
@@ -134,7 +163,8 @@ fun LoginMenu() {
                             ){
                                 append("Sign up")
                             }
-                        }
+                        },
+                        style = MaterialTheme.typography.body1
                     ){
                         // TODO("NAVIGATE TO REGISTER SCREEN")
                     }
@@ -146,6 +176,9 @@ fun LoginMenu() {
         }
 
     }
+
+
+
 
 }
 
