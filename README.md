@@ -6,6 +6,7 @@ App to explore app design in jetpack-compose
     - Recipes
     - Daily weather
     - Login
+    
 
 
 ## App preview:
@@ -22,3 +23,7 @@ Recipes #1            |  Recipes #2
 Daily Weather #1                   
 :-------------------------:
 <img src="images/Daily_Weather_1.jpg">   |
+
+Login #1            |  Login #2     |   Login #3
+:-------------------------:|:----------------------------:|:----------------------------:
+<img src="images/Login_1.jpg">    |  <img src="images/Login_2.jpg">  | <img src="images/Login_3.jpg">
