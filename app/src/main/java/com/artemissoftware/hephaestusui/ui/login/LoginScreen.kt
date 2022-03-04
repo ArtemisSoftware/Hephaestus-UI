@@ -49,7 +49,9 @@ import kotlinx.coroutines.launch
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    onNavigateToRegister: () -> Unit,
+) {
 
 
     val emailValue = rememberSaveable{ mutableStateOf("") }
@@ -75,7 +77,8 @@ fun LoginScreen() {
             contentAlignment = Alignment.BottomCenter
         ) {
             LoginMenu(
-                modifier = Modifier
+                modifier = Modifier,
+                onNavigateToRegister = onNavigateToRegister
             )
         }
 
@@ -89,6 +92,8 @@ fun LoginScreen() {
 @Composable
 private fun DefaultPreview() {
     LoginJetpackComposeTheme {
-        LoginScreen()
+        LoginScreen(
+            onNavigateToRegister = {}
+        )
     }
 }

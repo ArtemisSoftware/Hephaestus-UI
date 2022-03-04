@@ -40,7 +40,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 @ExperimentalComposeUiApi
 @Composable
 fun LoginMenu(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNavigateToRegister: () -> Unit,
 ) {
 
     val emailValue = rememberSaveable{ mutableStateOf("") }
@@ -182,7 +183,7 @@ fun LoginMenu(
                             },
                             style = MaterialTheme.typography.body1
                         ) {
-                            // TODO("NAVIGATE TO REGISTER SCREEN")
+                            onNavigateToRegister()
                         }
                     }
 
@@ -223,6 +224,8 @@ fun LoginMenu(
 @Composable
 private fun DefaultPreview() {
     LoginJetpackComposeTheme {
-        LoginMenu()
+        LoginMenu(
+            onNavigateToRegister = {}
+        )
     }
 }

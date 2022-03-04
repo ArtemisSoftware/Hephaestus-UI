@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import com.artemissoftware.hephaestusui.ui.login.HomeScreen
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -32,7 +33,7 @@ fun LoginNavigation() {
 
             Register(navController)
 
-//            addHome()
+            Home()
         }
     //}
 }
@@ -90,9 +91,9 @@ private fun NavGraphBuilder.Login(
             LoginScreen(
 //                state = viewModel.state.value,
 //                onLogin = viewModel::login,
-//                onNavigateToRegister = {
-//                    navController.navigate(Destinations.Register.route)
-//                },
+                onNavigateToRegister = {
+                    navController.navigate(LoginScreens.Register.route)
+                },
 //                onDismissDialog = viewModel::hideErrorDialog
             )
 //        }
@@ -148,15 +149,15 @@ fun NavGraphBuilder.Register(
 }
 
 @ExperimentalAnimationApi
-fun NavGraphBuilder.addHome() {
-//    composable(
-//        route = Destinations.Home.route + "/{email}" + "/{password}",
-//        arguments = Destinations.Home.arguments
-//    ){ backStackEntry ->
-//
-//        val email = backStackEntry.arguments?.getString("email") ?: ""
-//        val password = backStackEntry.arguments?.getString("password") ?: ""
-//
-//        HomeScreen(email, password)
-//    }
+fun NavGraphBuilder.Home() {
+    composable(
+        route = LoginScreens.Home.route + "/{email}" + "/{password}",
+        arguments = LoginScreens.Home.arguments
+    ){ backStackEntry ->
+
+        val email = backStackEntry.arguments?.getString("email") ?: ""
+        val password = backStackEntry.arguments?.getString("password") ?: ""
+
+        HomeScreen(email, password)
+    }
 }
