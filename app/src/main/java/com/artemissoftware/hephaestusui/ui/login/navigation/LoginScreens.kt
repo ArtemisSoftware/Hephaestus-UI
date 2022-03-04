@@ -1,4 +1,4 @@
-package com.artemissoftware.hephaestusui.ui.login
+package com.artemissoftware.hephaestusui.ui.login.navigation
 
 import androidx.navigation.NavType
 import androidx.navigation.compose.NamedNavArgument
