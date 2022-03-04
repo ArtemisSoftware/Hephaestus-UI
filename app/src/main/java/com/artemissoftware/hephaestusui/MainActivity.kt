@@ -13,12 +13,15 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import com.artemissoftware.hephaestusui.ui.dailyweather.DailyWeatherScreen
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
+import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
 import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @ExperimentalFoundationApi
     @ExperimentalMaterialApi
@@ -27,7 +30,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            HephaestusUILoginTheme()
+            HephaestusUILogin()
         }
     }
 }
@@ -45,9 +48,9 @@ fun HephaestusUIGeneralTheme() {
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
 @Composable
-fun HephaestusUILoginTheme() {
+fun HephaestusUILogin() {
     LoginJetpackComposeTheme {
-        LoginScreen()
+        RegistrationScreen()
     }
 }
 

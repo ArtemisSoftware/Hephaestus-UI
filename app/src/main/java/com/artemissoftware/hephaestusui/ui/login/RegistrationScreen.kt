@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.artemissoftware.hephaestusui.ui.login.composables.LoginMenu
 import com.artemissoftware.hephaestusui.ui.login.composables.NavigationBar
 import com.artemissoftware.hephaestusui.ui.login.composables.RegisterForm
 import com.artemissoftware.hephaestusui.ui.login.composables.RegisterOptions
@@ -33,9 +32,7 @@ fun RegistrationScreen() {
                 RegisterForm()
                 RegisterOptions()
             }
-
         }
-
     }
 
 }
