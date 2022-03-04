@@ -52,7 +52,8 @@ import kotlinx.coroutines.launch
 fun LoginScreen(
     state: LoginState,
     onNavigateToRegister: () -> Unit,
-    onDismissDialog: () -> Unit
+    onDismissDialog: () -> Unit,
+    onLogin: (String, String) -> Unit,
 ) {
 
 
@@ -80,7 +81,8 @@ fun LoginScreen(
         ) {
             LoginMenu(
                 modifier = Modifier,
-                onNavigateToRegister = onNavigateToRegister
+                onNavigateToRegister = onNavigateToRegister,
+                onLogin = onLogin
             )
         }
     }
@@ -104,7 +106,8 @@ private fun DefaultPreview() {
         LoginScreen(
             state = LoginState(),
             onNavigateToRegister = {},
-            onDismissDialog = {}
+            onDismissDialog = {},
+            onLogin = {_, _ ->}
         )
     }
 }

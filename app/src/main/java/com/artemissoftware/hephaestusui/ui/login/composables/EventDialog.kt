@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 fun EventDialog(
     modifier: Modifier = Modifier,
     @StringRes errorMessage: Int,
-    onDismiss: (() -> Unit)? = null
+    onDismiss: (() -> Unit)? = null,
 ) {
     AlertDialog(
         modifier = modifier

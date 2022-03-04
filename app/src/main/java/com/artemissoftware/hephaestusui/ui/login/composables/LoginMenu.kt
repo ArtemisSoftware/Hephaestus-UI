@@ -42,6 +42,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 fun LoginMenu(
     modifier: Modifier = Modifier,
     onNavigateToRegister: () -> Unit,
+    onLogin: (String, String) -> Unit,
 ) {
 
     val emailValue = rememberSaveable{ mutableStateOf("") }
@@ -118,7 +119,7 @@ fun LoginMenu(
                             onDone = {
                                 focusManager.clearFocus()
 
-                                //TODO("LOGIN")
+                                onLogin(emailValue.value, passwordValue.value)
                             }
                         ),
                         imeAction = ImeAction.Done,
@@ -164,7 +165,7 @@ fun LoginMenu(
                             text = "Login",
                             displayProgressBar = false,
                             onClick = {
-                                // TODO("LOGIN")
+                                onLogin(emailValue.value, passwordValue.value)
                             }
                         )
 
@@ -222,7 +223,8 @@ fun LoginMenu(
 private fun DefaultPreview() {
     LoginJetpackComposeTheme {
         LoginMenu(
-            onNavigateToRegister = {}
+            onNavigateToRegister = {},
+            onLogin = {_, _ ->}
         )
     }
 }

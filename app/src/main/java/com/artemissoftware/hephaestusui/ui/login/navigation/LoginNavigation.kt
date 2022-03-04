@@ -7,10 +7,12 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import com.artemissoftware.hephaestusui.ui.login.HomeScreen
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
+import com.artemissoftware.hephaestusui.ui.login.LoginViewModel
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.artemissoftware.hephaestusui.ui.login.states.LoginState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -74,7 +76,9 @@ private fun NavGraphBuilder.login(
             )
         }
     ){
-//        val viewModel: LoginViewModel = hiltViewModel()
+
+        val viewModel: LoginViewModel = hiltViewModel()
+
 //        val email = viewModel.state.value.email
 //        val password = viewModel.state.value.password
 //
@@ -90,14 +94,12 @@ private fun NavGraphBuilder.login(
 //            }
 //        } else {
             LoginScreen(
-//                state = viewModel.state.value,
-                state = LoginState(),
-//                onLogin = viewModel::login,
+                state = viewModel.state.value,
+                onLogin = viewModel::login,
                 onNavigateToRegister = {
                     navController.navigate(LoginScreens.Register.route)
                 },
-                onDismissDialog = {}
-//                onDismissDialog = viewModel::hideErrorDialog
+                onDismissDialog = viewModel::hideErrorDialog
             )
 //        }
     }
