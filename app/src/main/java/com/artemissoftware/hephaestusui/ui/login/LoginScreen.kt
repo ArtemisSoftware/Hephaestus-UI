@@ -38,9 +38,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.artemissoftware.hephaestusui.R
-import com.artemissoftware.hephaestusui.ui.login.composables.LoginMenu
-import com.artemissoftware.hephaestusui.ui.login.composables.RoundedButton
-import com.artemissoftware.hephaestusui.ui.login.composables.TransparentTextField
+import com.artemissoftware.hephaestusui.ui.login.composables.*
+import com.artemissoftware.hephaestusui.ui.login.composables.EventDialog
+import com.artemissoftware.hephaestusui.ui.login.states.LoginState
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -50,7 +50,9 @@ import kotlinx.coroutines.launch
 @ExperimentalComposeUiApi
 @Composable
 fun LoginScreen(
+    state: LoginState,
     onNavigateToRegister: () -> Unit,
+    onDismissDialog: () -> Unit
 ) {
 
 
@@ -81,7 +83,14 @@ fun LoginScreen(
                 onNavigateToRegister = onNavigateToRegister
             )
         }
+    }
 
+
+    if(state.errorMessage != null){
+        EventDialog(
+            errorMessage = state.errorMessage,
+            onDismiss = onDismissDialog
+        )
     }
 }
 
@@ -93,7 +102,9 @@ fun LoginScreen(
 private fun DefaultPreview() {
     LoginJetpackComposeTheme {
         LoginScreen(
-            onNavigateToRegister = {}
+            state = LoginState(),
+            onNavigateToRegister = {},
+            onDismissDialog = {}
         )
     }
 }

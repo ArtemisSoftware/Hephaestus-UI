@@ -12,6 +12,7 @@ import androidx.navigation.NavHostController
 import com.artemissoftware.hephaestusui.ui.login.HomeScreen
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
+import com.artemissoftware.hephaestusui.ui.login.states.LoginState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -29,7 +30,7 @@ fun LoginNavigation() {
             navController = navController,
             startDestination = LoginScreens.Login.route
         ){
-            Login(navController)
+            login(navController)
 
             Register(navController)
 
@@ -43,7 +44,7 @@ fun LoginNavigation() {
 @ExperimentalComposeUiApi
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
-private fun NavGraphBuilder.Login(
+private fun NavGraphBuilder.login(
     navController: NavHostController
 ){
     composable(
@@ -90,10 +91,12 @@ private fun NavGraphBuilder.Login(
 //        } else {
             LoginScreen(
 //                state = viewModel.state.value,
+                state = LoginState(),
 //                onLogin = viewModel::login,
                 onNavigateToRegister = {
                     navController.navigate(LoginScreens.Register.route)
                 },
+                onDismissDialog = {}
 //                onDismissDialog = viewModel::hideErrorDialog
             )
 //        }

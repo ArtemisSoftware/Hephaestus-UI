@@ -186,14 +186,9 @@ fun LoginMenu(
                             onNavigateToRegister()
                         }
                     }
-
-
                 }
-
             }
-
         }
-
 
 
         FloatingActionButton(
@@ -204,7 +199,9 @@ fun LoginMenu(
                     end.linkTo(surface.end, margin = 36.dp)
                 },
             backgroundColor = MaterialTheme.colors.primary,
-            onClick = {}
+            onClick = {
+                onNavigateToRegister()
+            }
         ) {
             Icon(
                 modifier = Modifier.size(42.dp),
