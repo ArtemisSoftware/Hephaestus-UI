@@ -6,14 +6,12 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import com.artemissoftware.hephaestusui.ui.login.HomeScreen
-import com.artemissoftware.hephaestusui.ui.login.LoginScreen
-import com.artemissoftware.hephaestusui.ui.login.LoginViewModel
-import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
+import com.artemissoftware.hephaestusui.ui.login.*
 import com.artemissoftware.hephaestusui.ui.login.states.LoginState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
@@ -36,7 +34,7 @@ fun LoginNavigation() {
 
             Register(navController)
 
-            Home()
+            home()
         }
     //}
 }
@@ -79,20 +77,19 @@ private fun NavGraphBuilder.login(
 
         val viewModel: LoginViewModel = hiltViewModel()
 
-//        val email = viewModel.state.value.email
-//        val password = viewModel.state.value.password
-//
-//        if(viewModel.state.value.successLogin){
-//            LaunchedEffect(key1 = Unit){
-//                navController.navigate(
-//                    Destinations.Home.route + "/$email" + "/$password"
-//                ){
-//                    popUpTo(Destinations.Login.route){
-//                        inclusive = true
-//                    }
-//                }
-//            }
-//        } else {
+        val email = viewModel.state.value.email
+        val password = viewModel.state.value.password
+
+        if(viewModel.state.value.successLogin){
+            LaunchedEffect(key1 = Unit){
+
+                navController.navigate(route = LoginScreens.Home.route + "/$email" + "/$password"){
+                    popUpTo(LoginScreens.Login.route){
+                        inclusive = true
+                    }
+                }
+            }
+        } else {
             LoginScreen(
                 state = viewModel.state.value,
                 onLogin = viewModel::login,
@@ -101,7 +98,7 @@ private fun NavGraphBuilder.login(
                 },
                 onDismissDialog = viewModel::hideErrorDialog
             )
-//        }
+        }
     }
 }
 
@@ -140,21 +137,21 @@ fun NavGraphBuilder.Register(
             )
         }
     ){
-//        val viewModel: RegisterViewModel = hiltViewModel()
+        val viewModel: RegisterViewModel = hiltViewModel()
 
         RegistrationScreen(
-//            state = viewModel.state.value,
-//            onRegister = viewModel::register,
-//            onBack = {
-//                navController.popBackStack()
-//            },
-//            onDismissDialog = viewModel::hideErrorDialog
+            state = viewModel.state.value,
+            onRegister = viewModel::register,
+            onBack = {
+                navController.popBackStack()
+            },
+            onDismissDialog = viewModel::hideErrorDialog
         )
     }
 }
 
 @ExperimentalAnimationApi
-fun NavGraphBuilder.Home() {
+fun NavGraphBuilder.home() {
     composable(
         route = LoginScreens.Home.route + "/{email}" + "/{password}",
         arguments = LoginScreens.Home.arguments

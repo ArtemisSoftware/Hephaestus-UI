@@ -28,7 +28,10 @@ import androidx.compose.ui.unit.dp
 
 @ExperimentalFoundationApi
 @Composable
-fun RegisterForm(){
+fun RegisterForm(
+    onRegister: (String, String, String, String, String) -> Unit,
+    onBack: () -> Unit,
+){
 
     val nameValue = remember { mutableStateOf("") }
     val emailValue = remember { mutableStateOf("") }
@@ -114,7 +117,14 @@ fun RegisterForm(){
             keyboardActions = KeyboardActions(
                 onDone = {
                     focusManager.clearFocus()
-                    // TODO("REGISTRATION")
+
+                    onRegister(
+                        nameValue.value,
+                        emailValue.value,
+                        phoneValue.value,
+                        passwordValue.value,
+                        confirmPasswordValue.value
+                    )
                 }
             ),
             imeAction = ImeAction.Done,
@@ -139,7 +149,14 @@ fun RegisterForm(){
             text = "Sign Up",
             displayProgressBar = false,
             onClick = {
-                // TODO("REGISTER")
+
+                onRegister(
+                    nameValue.value,
+                    emailValue.value,
+                    phoneValue.value,
+                    passwordValue.value,
+                    confirmPasswordValue.value
+                )
             }
         )
 
@@ -157,7 +174,7 @@ fun RegisterForm(){
                 }
             },
             onClick = {
-                // TODO("BACK")
+                onBack()
             },
             style = MaterialTheme.typography.body1
         )
@@ -169,5 +186,8 @@ fun RegisterForm(){
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    RegisterForm()
+    RegisterForm(
+        onRegister = {_,_,_,_,_ ->},
+        onBack = {}
+    )
 }

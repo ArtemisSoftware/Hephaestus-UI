@@ -14,14 +14,16 @@ import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 
 @Composable
-fun NavigationBar() {
+fun NavigationBar(
+    onBack: () -> Unit,
+) {
 
     Row(
         verticalAlignment = Alignment.CenterVertically
     ){
         IconButton(
             onClick = {
-                // TODO("BACK BUTOON")
+                onBack()
             }
         ) {
             Icon(
@@ -43,5 +45,7 @@ fun NavigationBar() {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    NavigationBar()
+    NavigationBar(
+        onBack = {}
+    )
 }

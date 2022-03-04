@@ -80,6 +80,7 @@ fun LoginScreen(
             contentAlignment = Alignment.BottomCenter
         ) {
             LoginMenu(
+                state = state,
                 modifier = Modifier,
                 onNavigateToRegister = onNavigateToRegister,
                 onLogin = onLogin

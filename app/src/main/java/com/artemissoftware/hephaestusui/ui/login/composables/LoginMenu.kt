@@ -35,11 +35,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.artemissoftware.hephaestusui.ui.login.states.LoginState
 
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
 @Composable
 fun LoginMenu(
+    state: LoginState,
     modifier: Modifier = Modifier,
     onNavigateToRegister: () -> Unit,
     onLogin: (String, String) -> Unit,
@@ -163,7 +165,7 @@ fun LoginMenu(
 
                         RoundedButton(
                             text = "Login",
-                            displayProgressBar = false,
+                            displayProgressBar = state.displayProgressBar,
                             onClick = {
                                 onLogin(emailValue.value, passwordValue.value)
                             }
@@ -223,6 +225,7 @@ fun LoginMenu(
 private fun DefaultPreview() {
     LoginJetpackComposeTheme {
         LoginMenu(
+            state = LoginState(),
             onNavigateToRegister = {},
             onLogin = {_, _ ->}
         )
