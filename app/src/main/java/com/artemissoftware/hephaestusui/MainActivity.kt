@@ -17,6 +17,7 @@ import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
 import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
+import com.artemissoftware.hephaestusui.ui.sneakershop.SneakerShopScreen
 import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
@@ -33,8 +34,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //HephaestusUIGeneral()
-            HephaestusUILogin()
+            HephaestusUIGeneral()
+            //HephaestusUILogin()
         }
     }
 }
@@ -45,7 +46,8 @@ fun HephaestusUIGeneral() {
     HephaestusUITheme {
         //StoriesApp()
         //RecipesScreen()
-        DailyWeatherScreen()
+        //DailyWeatherScreen()
+        SneakerShopScreen()
     }
 }
 
