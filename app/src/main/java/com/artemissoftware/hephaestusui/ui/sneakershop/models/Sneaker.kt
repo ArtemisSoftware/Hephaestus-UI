@@ -11,9 +11,9 @@ data class Sneaker(val price:String, val color: Color, val image:Int){
     companion object{
 
         fun getSneakerListMock() = listOf<Sneaker>(
-            Sneaker("330$", LIGHTBLUE50, R.drawable.ic_sun_full),
-            Sneaker("4990$", CYAN500, R.drawable.ic_sun_full),
-            Sneaker("1000$", Blue500, R.drawable.ic_sun_full),
+            Sneaker("330$", LIGHTBLUE50, R.drawable.shoe1),
+            Sneaker("4990$", CYAN500, R.drawable.shoe2),
+            Sneaker("1000$", Blue500, R.drawable.shoe3),
         )
     }
 }
