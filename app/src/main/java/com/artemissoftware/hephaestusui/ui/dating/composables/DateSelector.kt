@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.dating.models.Album
 
 @Composable
-fun OptionSelector(){
+fun DateSelector(){
 
     Row(
         horizontalArrangement = Arrangement.Center,
@@ -70,5 +70,5 @@ fun OptionSelector(){
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    OptionSelector()
+    DateSelector()
 }
