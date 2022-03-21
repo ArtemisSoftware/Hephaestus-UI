@@ -20,20 +20,20 @@ data class Album(
                     id = 1,
                     fruitName = "Apple",
                     descriptions = "Apple Description",
-                    imageId = R.drawable.artemis
+                    imageId = R.drawable.apple
                 ),
-                Album(
-                    id = 2,
-                    fruitName = "Banana",
-                    descriptions = "Banana Description",
-                    imageId = R.drawable.artemis_2
-                ),
-                Album(
-                    id = 3,
-                    fruitName = "Cherries",
-                    descriptions = "Cherries Description",
-                    imageId = R.drawable.artemis_3
-                ),
+//                Album(
+//                    id = 2,
+//                    fruitName = "Banana",
+//                    descriptions = "Banana Description",
+//                    imageId = R.drawable.artemis_2
+//                ),
+//                Album(
+//                    id = 3,
+//                    fruitName = "Cherries",
+//                    descriptions = "Cherries Description",
+//                    imageId = R.drawable.artemis_3
+//                ),
 //                Album(
 //                    id = 4,
 //                    fruitName = "Dates",
@@ -64,6 +64,25 @@ data class Album(
 //                    descriptions = "HackBerry Description",
 //                    imageId = R.drawable.hackberry
 //                )
+
+                Album(
+                    id = 9,
+                    fruitName = "Apple",
+                    descriptions = "Apple Description",
+                    imageId = R.drawable.artemis
+                ),
+//                Album(
+//                    id = 10,
+//                    fruitName = "Banana",
+//                    descriptions = "Banana Description",
+//                    imageId = R.drawable.artemis_2
+//                ),
+//                Album(
+//                    id = 11,
+//                    fruitName = "Cherries",
+//                    descriptions = "Cherries Description",
+//                    imageId = R.drawable.artemis_3
+//                ),
             )
 
             return albums
