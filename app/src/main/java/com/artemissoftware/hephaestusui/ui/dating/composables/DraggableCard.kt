@@ -43,7 +43,7 @@ fun DraggableCard(
     if (abs(swipeX.value) < swipeXRight - 50f) {
         val rotationFraction = (swipeX.value / 60).coerceIn(-40f, 40f)
         Card(
-            elevation = 16.dp,
+            elevation = 24.dp,
             modifier = modifier
                 .dragContent(
                     swipeX = swipeX,

@@ -5,8 +5,8 @@ import java.io.Serializable
 
 data class Date(
     val id: Int,
-    val fruitName: String,
-    val descriptions: String,
+    val name: String,
+    val description: String,
     val imageId: Int,
     val swiped: Boolean = false
 ) : Serializable{
@@ -15,77 +15,26 @@ data class Date(
 
         fun getListMock(): MutableList<Date> {
 
-            val albums = mutableListOf(
+            return mutableListOf(
                 Date(
                     id = 1,
-                    fruitName = "Apple",
-                    descriptions = "Apple Description",
-                    imageId = R.drawable.apple
+                    name = "Medusa",
+                    description = "Beast",
+                    imageId = R.drawable.medusa
                 ),
-//                Album(
-//                    id = 2,
-//                    fruitName = "Banana",
-//                    descriptions = "Banana Description",
-//                    imageId = R.drawable.artemis_2
-//                ),
-//                Album(
-//                    id = 3,
-//                    fruitName = "Cherries",
-//                    descriptions = "Cherries Description",
-//                    imageId = R.drawable.artemis_3
-//                ),
-//                Album(
-//                    id = 4,
-//                    fruitName = "Dates",
-//                    descriptions = "Dates Description",
-//                    imageId = R.drawable.dates
-//                ),
-//                Album(
-//                    id = 5,
-//                    fruitName = "EggFruit",
-//                    descriptions = "EggFruit Description",
-//                    imageId = R.drawable.eggfruit
-//                ),
-//                Album(
-//                    id = 6,
-//                    fruitName = "Fig",
-//                    descriptions = "Fig Description",
-//                    imageId = R.drawable.fig
-//                ),
-//                Album(
-//                    id = 7,
-//                    fruitName = "Grapes",
-//                    descriptions = "Grapes Description",
-//                    imageId = R.drawable.grapes
-//                ),
-//                Album(
-//                    id = 8,
-//                    fruitName = "HackBerry",
-//                    descriptions = "HackBerry Description",
-//                    imageId = R.drawable.hackberry
-//                )
-
                 Date(
                     id = 9,
-                    fruitName = "Apple",
-                    descriptions = "Apple Description",
-                    imageId = R.drawable.artemis
-                ),
-                Date(
-                    id = 10,
-                    fruitName = "Banana",
-                    descriptions = "Banana Description",
-                    imageId = R.drawable.artemis_2
+                    name = "Atlas",
+                    description = "Titan",
+                    imageId = R.drawable.atlas
                 ),
                 Date(
                     id = 11,
-                    fruitName = "Cherries",
-                    descriptions = "Cherries Description",
-                    imageId = R.drawable.artemis_3
+                    name = "Artemis",
+                    description = "Goddess",
+                    imageId = R.drawable.artemis_2
                 ),
             )
-
-            return albums
         }
     }
 

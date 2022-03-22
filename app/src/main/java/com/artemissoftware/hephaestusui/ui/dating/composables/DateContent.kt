@@ -15,6 +15,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Place
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -24,20 +25,20 @@ import com.artemissoftware.hephaestusui.ui.theme.purple
 import kotlin.random.Random
 
 @Composable
-fun DateCard(
+fun DateContent(
     date: Date,
     height: Dp
 ){
 
 
     Column(
-        modifier = Modifier.height(height = height)
+        modifier = Modifier.height(height = height),
     ) {
         Image(
             painter = painterResource(date.imageId),
             contentScale = ContentScale.Crop,
             contentDescription = null,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f).align(Alignment.CenterHorizontally)
         )
 
         Row(
@@ -49,7 +50,7 @@ fun DateCard(
         ){
 
             Text(
-                text = date.fruitName,
+                text = date.name,
                 modifier = Modifier
                     .padding(end = 8.dp)
                     .weight(1f),
@@ -74,7 +75,7 @@ fun DateCard(
 
 
         Text(
-            text = date.descriptions,
+            text = date.description,
             style = MaterialTheme.typography.subtitle2,
             modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 4.dp),
             color = Color.Gray
@@ -93,5 +94,5 @@ fun DateCard(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    DateCard(Date.getListMock()[1], height = 400.dp)
+    DateContent(Date.getListMock()[1], height = 400.dp)
 }

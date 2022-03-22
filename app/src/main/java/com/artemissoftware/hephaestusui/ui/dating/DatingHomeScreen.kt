@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.artemissoftware.hephaestusui.ui.dating.composables.DateCard
+import com.artemissoftware.hephaestusui.ui.dating.composables.DateContent
 import com.artemissoftware.hephaestusui.ui.dating.composables.DateSelector
 import com.artemissoftware.hephaestusui.ui.dating.composables.DatingLoader
 import com.artemissoftware.hephaestusui.ui.dating.composables.DraggableCard
@@ -48,19 +48,14 @@ fun DatingHomeScreen() {
                             noMoreDates.value = viewModel.removeDate(it)
                         }
                     ) {
-                        DateCard(date = date, height = cardHeight)
+                        DateContent(date = date, height = cardHeight)
                     }
                 }
 
                 DateSelector(noMoreDates = noMoreDates, height = cardHeight)
             }
-
-
         }
-
-
     }
-
 }
 
 @Composable
