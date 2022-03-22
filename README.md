@@ -6,6 +6,7 @@ App to explore app design in jetpack-compose
     - Recipes
     - Daily weather
     - Login
+    - Dating (with swipe animation)
     
 
 

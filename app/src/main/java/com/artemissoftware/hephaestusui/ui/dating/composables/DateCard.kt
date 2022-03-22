@@ -5,9 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.artemissoftware.hephaestusui.ui.dating.models.Album
+import com.artemissoftware.hephaestusui.ui.dating.models.Date
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -17,16 +18,23 @@ import androidx.compose.material.icons.outlined.Place
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.theme.purple
 import kotlin.random.Random
 
 @Composable
-fun DateCard(album: Album){
+fun DateCard(
+    date: Date,
+    height: Dp
+){
 
-    Column {
+
+    Column(
+        modifier = Modifier.height(height = height)
+    ) {
         Image(
-            painter = painterResource(album.imageId),
+            painter = painterResource(date.imageId),
             contentScale = ContentScale.Crop,
             contentDescription = null,
             modifier = Modifier.weight(1f)
@@ -41,7 +49,7 @@ fun DateCard(album: Album){
         ){
 
             Text(
-                text = album.fruitName,
+                text = date.fruitName,
                 modifier = Modifier
                     .padding(end = 8.dp)
                     .weight(1f),
@@ -66,7 +74,7 @@ fun DateCard(album: Album){
 
 
         Text(
-            text = album.descriptions,
+            text = date.descriptions,
             style = MaterialTheme.typography.subtitle2,
             modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 4.dp),
             color = Color.Gray
@@ -85,5 +93,5 @@ fun DateCard(album: Album){
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    DateCard(Album.getListMock()[1])
+    DateCard(Date.getListMock()[1], height = 400.dp)
 }

@@ -3,7 +3,7 @@ package com.artemissoftware.hephaestusui.ui.dating.models
 import com.artemissoftware.hephaestusui.R
 import java.io.Serializable
 
-data class Album(
+data class Date(
     val id: Int,
     val fruitName: String,
     val descriptions: String,
@@ -13,10 +13,10 @@ data class Album(
 
     companion object{
 
-        fun getListMock(): MutableList<Album> {
+        fun getListMock(): MutableList<Date> {
 
             val albums = mutableListOf(
-                Album(
+                Date(
                     id = 1,
                     fruitName = "Apple",
                     descriptions = "Apple Description",
@@ -65,24 +65,24 @@ data class Album(
 //                    imageId = R.drawable.hackberry
 //                )
 
-                Album(
+                Date(
                     id = 9,
                     fruitName = "Apple",
                     descriptions = "Apple Description",
                     imageId = R.drawable.artemis
                 ),
-//                Album(
-//                    id = 10,
-//                    fruitName = "Banana",
-//                    descriptions = "Banana Description",
-//                    imageId = R.drawable.artemis_2
-//                ),
-//                Album(
-//                    id = 11,
-//                    fruitName = "Cherries",
-//                    descriptions = "Cherries Description",
-//                    imageId = R.drawable.artemis_3
-//                ),
+                Date(
+                    id = 10,
+                    fruitName = "Banana",
+                    descriptions = "Banana Description",
+                    imageId = R.drawable.artemis_2
+                ),
+                Date(
+                    id = 11,
+                    fruitName = "Cherries",
+                    descriptions = "Cherries Description",
+                    imageId = R.drawable.artemis_3
+                ),
             )
 
             return albums
