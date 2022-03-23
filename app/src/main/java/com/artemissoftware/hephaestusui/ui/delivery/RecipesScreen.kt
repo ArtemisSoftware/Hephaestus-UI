@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSpecifications
 import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSummary
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
 
@@ -117,7 +118,7 @@ fun RecipesScreen(dish: Dish) {
     }
 */
     Column(
-        modifier = Modifier.fillMaxSize(),
+        //modifier = Modifier.fillMaxSize(),
 //        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         /*
@@ -169,118 +170,44 @@ fun RecipesScreen(dish: Dish) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(30.dp)
+                //.padding(30.dp)
         ) {
             RecipeSummary(dish = dish)
 
-            /*
             Spacer(modifier = Modifier.height(25.dp))
-            Row(
-                modifier = Modifier.wrapContentSize()
-            ) {
-                Row(
-                    modifier = Modifier
-                        .weight(1f)
-                        .wrapContentSize()
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.star),
-                            contentDescription = "Rating",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(
-                            text = "3.5",
-                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
-                            color = Color.Black,
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-                Row(
-                    modifier = Modifier
-                        .weight(1f)
-                        .wrapContentSize()
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.flame),
-                            contentDescription = "Flame",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(
-                            text = "150 Kcal",
-                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
-                            color = Color.Black,
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-                Row(
-                    modifier = Modifier
-                        .weight(1f)
-                        .wrapContentSize()
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.chronometer),
-                            contentDescription = "Time",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(
-                            text = "10-15 Mins",
-                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
-                            color = Color.Black,
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-            }
+            
+            RecipeSpecifications(dish = dish)
+
             Spacer(modifier = Modifier.height(25.dp))
+
             AndroidView(
                 factory = { context ->
                     TextView(context).apply {
-                        text = Html.fromHtml("<string><span style = \"color:#424242\">This beef burger uses 100% quality beef with sliced tomates, cucumbers, vegetables and onions... </span><span style = \"color:#F54748\">Read More</span></string>")
+                        text = Html.fromHtml(dish.descriptionHtml)
                     }
                 }
             )
-            Spacer(modifier = Modifier.height(25.dp))
-            Button(
-                onClick = { },
-                colors = ButtonDefaults.buttonColors(FoodColor),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(30.dp))
-                    .height(65.dp)
-            ) {
-                Text(
-                    text = "Add to Cart",
-                    fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
 
-            */
+            /*
+Spacer(modifier = Modifier.height(25.dp))
+Button(
+    onClick = { },
+    colors = ButtonDefaults.buttonColors(FoodColor),
+    modifier = Modifier
+        .fillMaxWidth()
+        .clip(RoundedCornerShape(30.dp))
+        .height(65.dp)
+) {
+    Text(
+        text = "Add to Cart",
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        color = Color.White,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+*/
         }
     }
 }
