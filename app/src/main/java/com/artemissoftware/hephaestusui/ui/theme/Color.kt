@@ -50,3 +50,9 @@ val GMAILCOLOR = Color(0xFFDB4437)
 
 val green500 = Color(0xff4caf50)
 val purple = Color(0xFF833AB4)
+
+
+val FoodColor = Color(0xFFF54748)
+val FoodBackgroundColor = Color(0xFFFEECC9)
+val CategoryBackgroundColor = Color(0xFFF7F7F7)
+val ViewAllColor = Color(0xFFFDC55E)

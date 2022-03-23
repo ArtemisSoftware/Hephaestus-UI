@@ -28,3 +28,7 @@ Daily Weather #1
 Login #1            |  Login #2     |   Login #3
 :-------------------------:|:----------------------------:|:----------------------------:
 <img src="images/Login_1.jpg">    |  <img src="images/Login_2.jpg">  | <img src="images/Login_3.jpg">
+
+Dating #1            |  Dating #2
+:-------------------------:|:----------------------------:
+<img src="images/Dating_1.jpg">    |  <img src="images/Dating_2.jpg">   
