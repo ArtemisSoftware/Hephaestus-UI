@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.delivery.composables.HtmlTextFormater
 import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSpecifications
 import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSummary
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
@@ -180,13 +181,7 @@ fun RecipesScreen(dish: Dish) {
 
             Spacer(modifier = Modifier.height(25.dp))
 
-            AndroidView(
-                factory = { context ->
-                    TextView(context).apply {
-                        text = Html.fromHtml(dish.descriptionHtml)
-                    }
-                }
-            )
+            HtmlTextFormater(htmlText = dish.descriptionHtml)
 
             /*
 Spacer(modifier = Modifier.height(25.dp))

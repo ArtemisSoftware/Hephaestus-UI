@@ -63,18 +63,7 @@ fun RecipeSummary(dish: Dish) {
             }
         }
 
-
-        Column(
-            modifier = Modifier.weight(0.3f)
-        ) {
-            AndroidView(
-                factory = { context ->
-                    TextView(context).apply {
-                        text = Html.fromHtml(dish.priceHtml)
-                    }
-                }
-            )
-        }
+        HtmlTextFormater(htmlText = dish.priceHtml, modifier = Modifier.weight(0.3f))
 
 
     }
