@@ -1,44 +1,31 @@
 package com.artemissoftware.hephaestusui.ui.delivery
 
 import android.app.Activity
-import android.text.Html
-import android.widget.TextView
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
-import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.delivery.composables.HtmlTextFormater
+import com.artemissoftware.hephaestusui.ui.delivery.composables.QuantitySelector
 import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSpecifications
 import com.artemissoftware.hephaestusui.ui.delivery.composables.RecipeSummary
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
+import com.artemissoftware.hephaestusui.ui.theme.FoodColor
+import com.artemissoftware.hephaestusui.ui.theme.Poppins
 
 @Composable
 fun RecipesScreen(dish: Dish) {
-    var value by remember { mutableStateOf(5) }
+    var value = remember { mutableStateOf(5) }
     val activity = LocalContext.current as Activity
 
     /*
@@ -118,61 +105,27 @@ fun RecipesScreen(dish: Dish) {
         ) { }
     }
 */
-    Column(
-        //modifier = Modifier.fillMaxSize(),
-//        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        /*
+    Column {
+
         Spacer(modifier = Modifier.height(70.dp))
-        Image(
-            painter = painterResource(id = R.drawable.burger_img),
-            contentDescription = "Category Image",
-            contentScale = ContentScale.FillBounds,
-            modifier = Modifier.size(width = 220.dp, height = 300.dp)
-        )
+        /*
+Image(
+    painter = painterResource(id = R.drawable.burger_img),
+    contentDescription = "Category Image",
+    contentScale = ContentScale.FillBounds,
+    modifier = Modifier.size(width = 220.dp, height = 300.dp)
+)
+
+ */
         Spacer(modifier = Modifier.height(30.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .clip(RoundedCornerShape(30.dp))
-                .background(FoodColor)
-        ) {
-            Spacer(modifier = Modifier.width(10.dp))
-            Icon(
-                painter = painterResource(id = R.drawable.ic_minus),
-                contentDescription = "Minus",
-                modifier = Modifier
-                    .clickable {
-                        value--
-                    }
-                    .size(25.dp),
-                tint = Color.White
-            )
-            Text(
-                text = "$value",
-                modifier = Modifier.padding(vertical = 10.dp, horizontal = 16.dp),
-                fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                fontWeight = FontWeight.Medium,
-                color = Color.White
-            )
-            Icon(
-                painter = painterResource(id = R.drawable.ic_plus),
-                contentDescription = "Add",
-                modifier = Modifier
-                    .clickable {
-                        value++
-                    }
-                    .size(25.dp),
-                tint = Color.White
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-        }
-        */
+        QuantitySelector(value)
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 //.padding(30.dp)
         ) {
+
             RecipeSummary(dish = dish)
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -183,26 +136,25 @@ fun RecipesScreen(dish: Dish) {
 
             HtmlTextFormater(htmlText = dish.descriptionHtml)
 
-            /*
-Spacer(modifier = Modifier.height(25.dp))
-Button(
-    onClick = { },
-    colors = ButtonDefaults.buttonColors(FoodColor),
-    modifier = Modifier
-        .fillMaxWidth()
-        .clip(RoundedCornerShape(30.dp))
-        .height(65.dp)
-) {
-    Text(
-        text = "Add to Cart",
-        fontFamily = FontFamily(Font(R.font.poppins_bold)),
-        color = Color.White,
-        fontSize = 16.sp,
-        fontWeight = FontWeight.Bold
-    )
-}
+            Spacer(modifier = Modifier.height(25.dp))
 
-*/
+            Button(
+                onClick = { },
+                colors = ButtonDefaults.buttonColors(FoodColor),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(30.dp))
+                    .height(65.dp)
+            ) {
+
+                Text(
+                    text = "Add to Cart",
+                    fontFamily = Poppins,
+                    color = Color.White,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }
