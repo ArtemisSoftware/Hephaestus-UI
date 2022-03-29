@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.delivery.composables.BannerCard
+import com.artemissoftware.hephaestusui.ui.delivery.composables.BottomBar
 import com.artemissoftware.hephaestusui.ui.delivery.models.Delivery
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
 import com.artemissoftware.hephaestusui.ui.theme.FoodColor
@@ -96,83 +97,7 @@ fun RestaurantHomeScreen(
         },
         isFloatingActionButtonDocked = true,
         floatingActionButtonPosition = FabPosition.Center,
-        bottomBar = {
-            /*
-            BottomAppBar(
-                backgroundColor = Color.White,
-                cutoutShape = RoundedCornerShape(50),
-                elevation = 0.dp,
-                content = {
-                    BottomNavigation(
-                        backgroundColor = Color.White,
-                        elevation = 0.dp
-                    ) {
-                        BottomNavigationItem(
-                            selected = true,
-                            onClick = { },
-                            icon = {
-                                Icon(
-                                    Icons.Outlined.Home,
-                                    contentDescription = "Home"
-                                )
-                            },
-                            selectedContentColor = FoodColor,
-                            unselectedContentColor = Color.LightGray
-                        )
-                        BottomNavigationItem(
-                            selected = false,
-                            onClick = { },
-                            icon = {
-                                Icon(
-                                    Icons.Outlined.FavoriteBorder,
-                                    contentDescription = "Favorite"
-                                )
-                            },
-                            selectedContentColor = FoodColor,
-                            unselectedContentColor = Color.LightGray
-                        )
-                        Spacer(modifier = Modifier.weight(1f, true))
-                        BottomNavigationItem(
-                            selected = false,
-                            onClick = { },
-                            icon = {
-                                Icon(
-                                    Icons.Outlined.Notifications,
-                                    contentDescription = "Notifications"
-                                )
-                            },
-                            selectedContentColor = FoodColor,
-                            unselectedContentColor = Color.LightGray
-                        )
-                        BottomNavigationItem(
-                            selected = false,
-                            onClick = { },
-                            icon = {
-                                BadgeBox(
-                                    backgroundColor = FoodColor,
-                                    badgeContent = {
-                                        Text(
-                                            text = "5",
-                                            color = Color.White,
-                                            fontFamily = FontFamily(poppinsLight)
-                                        )
-                                    }
-                                ) {
-                                    Icon(
-                                        Icons.Outlined.ShoppingCart,
-                                        contentDescription = "Cart"
-                                    )
-                                }
-                            },
-                            selectedContentColor = FoodColor,
-                            unselectedContentColor = Color.LightGray
-                        )
-                    }
-                }
-            )
-
-             */
-        }
+        bottomBar = { BottomBar() }
     ) {
         
         Column(
