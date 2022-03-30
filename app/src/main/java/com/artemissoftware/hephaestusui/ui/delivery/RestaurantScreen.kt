@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.delivery.composables.BannerCard
 import com.artemissoftware.hephaestusui.ui.delivery.composables.BottomBar
 import com.artemissoftware.hephaestusui.ui.delivery.composables.DeliveryCategories
+import com.artemissoftware.hephaestusui.ui.delivery.composables.DeliveryTopBar
 import com.artemissoftware.hephaestusui.ui.delivery.models.Delivery
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
 import com.artemissoftware.hephaestusui.ui.theme.FoodColor
@@ -29,55 +30,7 @@ fun RestaurantHomeScreen(
 
     Scaffold(
         topBar = {
-            /*
-            TopAppBar(
-                backgroundColor = Color.White,
-                elevation = 0.dp,
-                title = {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Icon(
-                            Icons.Outlined.LocationOn,
-                            contentDescription = "Location",
-                            tint = FoodColor,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(
-                            text = "Pick Location",
-                            fontFamily = FontFamily(poppinsBold),
-                            fontSize = 16.sp
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(
-                        onClick = { }
-                    ) {
-                        Icon(
-                            Icons.Outlined.Person,
-                            contentDescription = "Profile"
-                        )
-                    }
-                },
-                navigationIcon = {
-                    IconButton(
-                        onClick = { }
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.four_dot),
-                            contentDescription = "Navigation Menu",
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier.size(25.dp)
-                        )
-                    }
-                }
-            )
-
-             */
+            DeliveryTopBar()
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -106,27 +59,13 @@ fun RestaurantHomeScreen(
         ) {
             
 
-            //Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             
             BannerCard(delivery = delivery)
-            
-            /*
-            Spacer(modifier = Modifier.height(25.dp))
-            Text(
-                text = "Categories",
-                fontFamily = FontFamily(poppinsBold),
-                color = Color.Black,
-                fontSize = 18.sp,
-                modifier = Modifier.fillMaxWidth()
-            )
 
-
-             */
             Spacer(modifier = Modifier.height(24.dp))
 
-
             DeliveryCategories(delivery = delivery)
-
 
             Spacer(modifier = Modifier.height(24.dp))
             /*
