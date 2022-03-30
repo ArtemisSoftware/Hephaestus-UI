@@ -63,9 +63,9 @@ fun BannerCard(delivery: Delivery){
                     Text(
                         text = "Order Now",
                         fontFamily = Poppins,
+                        fontWeight = FontWeight.Bold,
                         color = Color.White,
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.Bold
+                        fontSize = 10.sp
                     )
                 }
             }
