@@ -14,6 +14,9 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import com.artemissoftware.hephaestusui.ui.dailyweather.DailyWeatherScreen
 import com.artemissoftware.hephaestusui.ui.dating.DatingHomeScreen
+import com.artemissoftware.hephaestusui.ui.delivery.DeliveryApp
+import com.artemissoftware.hephaestusui.ui.delivery.RestaurantHomeScreen
+import com.artemissoftware.hephaestusui.ui.delivery.models.Delivery
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
@@ -43,6 +46,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@ExperimentalMaterialApi
 @Composable
 fun HephaestusUIGeneral() {
     HephaestusUITheme {
@@ -51,7 +55,7 @@ fun HephaestusUIGeneral() {
         //DailyWeatherScreen()
         //SneakerShopScreen()
         //DatingHomeScreen()
-        com.artemissoftware.hephaestusui.ui.delivery.RecipesScreen(dish = Dish.getMock())
+        DeliveryApp()
     }
 }
 

@@ -56,7 +56,7 @@ fun BannerCard(delivery: Delivery){
                 Button(
                     onClick = { },
                     modifier = Modifier
-                        .width(100.dp)
+                        .width(120.dp)
                         .clip(RoundedCornerShape(20.dp)),
                     colors = ButtonDefaults.buttonColors(FoodColor)
                 ) {

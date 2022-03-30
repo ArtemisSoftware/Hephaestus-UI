@@ -20,13 +20,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.ui.theme.Poppins
 import com.artemissoftware.hephaestusui.ui.theme.ViewAllColor
 import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.delivery.models.PopularDelivery
 
 @Composable
-fun PopularNow(popularDelivery: PopularDelivery) {
+fun PopularNow(
+    popularDelivery: PopularDelivery,
+    navController: NavHostController
+) {
 
     Column {
 
@@ -79,7 +84,7 @@ fun PopularNow(popularDelivery: PopularDelivery) {
 
         LazyRow {
             items(10) { index ->
-                Popular(popularDelivery = popularDelivery, index = index)
+                Popular(popularDelivery = popularDelivery, index = index, navController = navController)
                 Spacer(modifier = Modifier.width(10.dp))
             }
         }
@@ -91,7 +96,9 @@ fun PopularNow(popularDelivery: PopularDelivery) {
 @Composable
 fun Popular(
     popularDelivery: PopularDelivery,
-    index: Int) {
+    index: Int,
+    navController: NavHostController
+) {
 
     Card(
         modifier = Modifier
@@ -99,7 +106,7 @@ fun Popular(
             .wrapContentHeight()
             .padding(start = 5.dp)
             .clickable {
-                //navController.navigate("recipe_screen")
+                navController.navigate("recipe_screen")
             }
             ,
         elevation = 5.dp,
@@ -172,11 +179,13 @@ fun Popular(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    PopularNow(PopularDelivery.getMock())
+    val navController = rememberNavController()
+    PopularNow(PopularDelivery.getMock(), navController)
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun PopularPreview() {
-    Popular(PopularDelivery.getMock(), 0)
+    val navController = rememberNavController()
+    Popular(PopularDelivery.getMock(), 0, navController)
 }

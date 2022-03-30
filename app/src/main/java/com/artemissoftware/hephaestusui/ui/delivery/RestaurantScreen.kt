@@ -6,10 +6,13 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.ui.delivery.composables.*
 import com.artemissoftware.hephaestusui.ui.delivery.models.Delivery
 import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
@@ -18,8 +21,8 @@ import com.artemissoftware.hephaestusui.ui.theme.FoodColor
 @ExperimentalMaterialApi
 @Composable
 fun RestaurantHomeScreen(
-    delivery: Delivery
-/*navController: NavHostController*/
+    delivery: Delivery,
+    navController: NavHostController
 ) {
 
     Scaffold(
@@ -49,7 +52,7 @@ fun RestaurantHomeScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 25.dp),
-//            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -62,7 +65,7 @@ fun RestaurantHomeScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            PopularNow(popularDelivery = delivery.popularDelivery)
+            PopularNow(popularDelivery = delivery.popularDelivery, navController = navController)
 
         }
     }
@@ -72,5 +75,6 @@ fun RestaurantHomeScreen(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    RestaurantHomeScreen(delivery = Delivery.getMock())
+    val navController = rememberNavController()
+    RestaurantHomeScreen(delivery = Delivery.getMock(), navController)
 }
