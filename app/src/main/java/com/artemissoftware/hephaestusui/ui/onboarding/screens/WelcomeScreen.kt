@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.ui.onboarding.composables.PagerScreen
 import com.artemissoftware.hephaestusui.ui.onboarding.models.OnBoardingPage
 import com.google.accompanist.pager.*
@@ -68,5 +69,6 @@ fun WelcomeScreen(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    WelcomeScreen(hiltViewModel())
+    val navController = rememberNavController()
+    WelcomeScreen(navController, hiltViewModel())
 }

@@ -21,6 +21,7 @@ import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
 import com.artemissoftware.hephaestusui.ui.login.LoginScreen
 import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
+import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
 import com.artemissoftware.hephaestusui.ui.sneakershop.SneakerShopScreen
 import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
@@ -46,6 +47,8 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
 @ExperimentalMaterialApi
 @Composable
 fun HephaestusUIGeneral() {
@@ -55,7 +58,8 @@ fun HephaestusUIGeneral() {
         //DailyWeatherScreen()
         //SneakerShopScreen()
         //DatingHomeScreen()
-        DeliveryApp()
+        //DeliveryApp()
+        OnboardingApp()
     }
 }
 
