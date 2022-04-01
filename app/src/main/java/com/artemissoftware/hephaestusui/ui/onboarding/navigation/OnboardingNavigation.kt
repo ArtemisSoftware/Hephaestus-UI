@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.artemissoftware.hephaestusui.ui.onboarding.screens.HomeScreen
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.WelcomeScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 
@@ -23,7 +24,7 @@ fun OnboardingNavigation(
             WelcomeScreen(navController = navController)
         }
         composable(route = Screen.Home.route) {
-            //--HomeScreen()
+            HomeScreen()
         }
     }
 }

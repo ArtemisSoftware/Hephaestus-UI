@@ -6,32 +6,28 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
-import com.artemissoftware.hephaestusui.ui.dailyweather.DailyWeatherScreen
-import com.artemissoftware.hephaestusui.ui.dating.DatingHomeScreen
-import com.artemissoftware.hephaestusui.ui.delivery.DeliveryApp
-import com.artemissoftware.hephaestusui.ui.delivery.RestaurantHomeScreen
-import com.artemissoftware.hephaestusui.ui.delivery.models.Delivery
-import com.artemissoftware.hephaestusui.ui.delivery.models.Dish
-import com.artemissoftware.hephaestusui.ui.login.LoginScreen
-import com.artemissoftware.hephaestusui.ui.login.RegistrationScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
-import com.artemissoftware.hephaestusui.ui.recipes.RecipesScreen
-import com.artemissoftware.hephaestusui.ui.sneakershop.SneakerShopScreen
-import com.artemissoftware.hephaestusui.ui.stories.StoriesApp
+import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var splashViewModel: SplashViewModel
+
+
     @ExperimentalAnimationApi
     @ExperimentalFoundationApi
     @ExperimentalMaterialApi
@@ -39,9 +35,15 @@ class MainActivity : ComponentActivity() {
     @ExperimentalPagerApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen().setKeepOnScreenCondition {
+            !splashViewModel.isLoading.value
+        }
+
         setContent {
-            HephaestusUIGeneral()
+            //HephaestusUIGeneral()
             //HephaestusUILogin()
+            HephaestusUIOnboarding(splashViewModel.startDestination)
         }
     }
 }
@@ -59,7 +61,7 @@ fun HephaestusUIGeneral() {
         //SneakerShopScreen()
         //DatingHomeScreen()
         //DeliveryApp()
-        OnboardingApp()
+
     }
 }
 
@@ -73,6 +75,15 @@ fun HephaestusUILogin() {
     }
 }
 
+
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
+@Composable
+fun HephaestusUIOnboarding(startDestination: State<String>) {
+    HephaestusUITheme {
+        OnboardingApp(startDestination)
+    }
+}
 
 @Composable
 fun Greeting(name: String) {
