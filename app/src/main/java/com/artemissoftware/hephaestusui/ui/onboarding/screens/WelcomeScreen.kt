@@ -21,8 +21,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.artemissoftware.hephaestusui.ui.onboarding.composables.FinishButton
 import com.artemissoftware.hephaestusui.ui.onboarding.composables.PagerScreen
 import com.artemissoftware.hephaestusui.ui.onboarding.models.OnBoardingPage
+import com.artemissoftware.hephaestusui.ui.onboarding.navigation.Screen
 import com.google.accompanist.pager.*
 
 @ExperimentalPagerApi
@@ -37,30 +39,33 @@ fun WelcomeScreen(
         OnBoardingPage.Second,
         OnBoardingPage.Third
     )
-    val pagerState = rememberPagerState(pageCount = pages.size)
+    val pagerState = rememberPagerState()
 
     Column(modifier = Modifier.fillMaxSize()) {
         HorizontalPager(
             modifier = Modifier.weight(10f),
+            count = pages.size,
             state = pagerState,
             verticalAlignment = Alignment.Top
         ) { position ->
             PagerScreen(onBoardingPage = pages[position])
         }
-//        HorizontalPagerIndicator(
-//            modifier = Modifier
-//                .align(Alignment.CenterHorizontally)
-//                .weight(1f),
-//            pagerState = pagerState
-//        )
-//        FinishButton(
-//            modifier = Modifier.weight(1.3f),
-//            pagerState = pagerState
-//        ) {
-//            welcomeViewModel.saveOnBoardingState(completed = true)
-//            navController.popBackStack()
-//            navController.navigate(Screen.Home.route)
-//        }
+        HorizontalPagerIndicator(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .weight(1f),
+            pagerState = pagerState
+        )
+
+        FinishButton(
+            modifier = Modifier.weight(1.3f),
+            pagerState = pagerState,
+            onClick = {
+                welcomeViewModel.saveOnBoardingState(completed = true)
+                navController.popBackStack()
+                navController.navigate(Screen.Home.route)
+            }
+        )
     }
 }
 

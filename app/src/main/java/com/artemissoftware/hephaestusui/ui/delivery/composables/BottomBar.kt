@@ -1,7 +1,7 @@
 package com.artemissoftware.hephaestusui.ui.delivery.composables
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -81,16 +81,20 @@ fun BottomBar(){
                 selected = false,
                 onClick = { },
                 icon = {
-                    BadgeBox(
-                        backgroundColor = FoodColor,
-                        badgeContent = {
-                            Text(
-                                text = "5",
-                                color = Color.White,
-                                fontFamily = Poppins,
-                                fontWeight = FontWeight.Light,
-                                modifier = Modifier.align(Alignment.CenterVertically)
-                            )
+
+                    BadgedBox(
+                        badge = {
+                            Badge(
+                                backgroundColor = FoodColor
+
+                                ) {
+                                Text(
+                                    text = "5",
+                                    color = Color.White,
+                                    fontFamily = Poppins,
+                                    fontWeight = FontWeight.Light,
+                                )
+                            }
                         }
                     ) {
                         Icon(
@@ -98,6 +102,25 @@ fun BottomBar(){
                             contentDescription = "Cart"
                         )
                     }
+
+
+//                    BadgedBox(
+//                        modifier = Modifier.background(FoodColor),
+//                        badgeContent = {
+//                            Text(
+//                                text = "5",
+//                                color = Color.White,
+//                                fontFamily = Poppins,
+//                                fontWeight = FontWeight.Light,
+//                                modifier = Modifier.align(Alignment.CenterVertically)
+//                            )
+//                        }
+//                    ) {
+//                        Icon(
+//                            Icons.Outlined.ShoppingCart,
+//                            contentDescription = "Cart"
+//                        )
+//                    }
                 },
                 selectedContentColor = FoodColor,
                 unselectedContentColor = Color.LightGray

@@ -27,7 +27,8 @@ fun StoryImage(
     HorizontalPager(
         state = pagerState,
         content = content,
-        dragEnabled = false,
+        count = 3,
+        userScrollEnabled = false,
         modifier = Modifier.pointerInteropFilter {
             when(it.action) {
                 MotionEvent.ACTION_DOWN -> {

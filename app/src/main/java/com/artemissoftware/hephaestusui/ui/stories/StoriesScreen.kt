@@ -42,7 +42,7 @@ fun StoriesScreen(
 
     val coroutineScope = rememberCoroutineScope()
 
-    val pagerState = rememberPagerState(pageCount = numberOfPages)
+    val pagerState = rememberPagerState()
     var pauseTimer by remember { mutableStateOf(false) }
 
 
