@@ -8,7 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BalanceInfo
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BankingOptions
+import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.TransactionHeader
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
+import com.artemissoftware.hephaestusui.ui.theme.BgColor
 
 @Composable
 fun MobileBankingScreen() {
@@ -34,51 +36,20 @@ fun MobileBankingScreen() {
 
             BankingOptions()
         }
-//        Column(
-//            modifier = Modifier
-//                .weight(0.72f)
-//                .fillMaxSize()
+        Column(
+            modifier = Modifier
+                .weight(0.72f)
+                .fillMaxSize()
 //                .clip(RoundedCornerShape(topStart = 35.dp, topEnd = 35.dp))
-//                .background(BgColor)
-//                .padding(20.dp)
-//        ) {
-//            Row(
-//                verticalAlignment = Alignment.CenterVertically
-//            ) {
-//                Column(
-//                    modifier = Modifier.weight(0.7f)
-//                ) {
-//                    Text(
-//                        text = "Recent Transactions",
-//                        fontFamily = FontFamily(Font(R.font.poppins_bold)),
-//                        color = BankColor,
-//                        fontSize = 22.sp,
-//                        modifier = Modifier.fillMaxWidth()
-//                    )
-//                }
-//                Column(
-//                    modifier = Modifier
-//                        .weight(0.3f)
-//                        .fillMaxWidth()
-//                ) {
-//                    Column(
-//                        modifier = Modifier.align(Alignment.End)
-//                    ) {
-//                        Row(
-//                            verticalAlignment = Alignment.CenterVertically
-//                        ) {
-//                            Text(
-//                                text = "See all",
-//                                fontFamily = FontFamily(Font(R.font.poppins_bold)),
-//                                color = BankColor.copy(alpha = 0.7f),
-//                                fontSize = 16.sp,
-//                                fontWeight = FontWeight.Bold
-//                            )
-//                        }
-//                    }
-//                }
-//            }
-//            Spacer(modifier = Modifier.height(5.dp))
+                .background(BgColor)
+                .padding(20.dp)
+        ) {
+
+            TransactionHeader()
+
+            Spacer(modifier = Modifier.height(5.dp))
+
+
 //            Row(
 //                modifier = Modifier.fillMaxWidth()
 //            ) {
@@ -343,7 +314,7 @@ fun MobileBankingScreen() {
 //                    }
 //                }
 //            }
-//        }
+        }
     }
 }
 
