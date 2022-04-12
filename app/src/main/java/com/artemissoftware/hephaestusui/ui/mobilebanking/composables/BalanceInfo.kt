@@ -34,63 +34,76 @@ import com.artemissoftware.hephaestusui.ui.theme.Poppins
 @Composable
 fun BalanceInfo() {
 
-    Row(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(60.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "$4,258.50",
-            color = Color.White,
-            //modifier = Modifier.weight(1f),
-            fontFamily = Poppins,
-            fontWeight = FontWeight.Bold,
-            fontSize = 30.sp
-        )
-        Column(
+
+        Row(
             modifier = Modifier
-//                .weight(1f)
                 .fillMaxWidth()
+                .height(60.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Row(
+            Text(
+                text = "$4,258.50",
+                color = Color.White,
+                modifier = Modifier.weight(1f),
+                fontFamily = Poppins,
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp
+            )
+            Column(
                 modifier = Modifier
-                    .align(Alignment.End),
-                verticalAlignment = Alignment.CenterVertically
+                    .weight(1f)
+                    .fillMaxWidth()
             ) {
-                BadgedBox(
-                    badge = {
-                        Badge(backgroundColor = BadgeColor) { }
-                    }
+                Row(
+                    modifier = Modifier
+                        .align(Alignment.End),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        Icons.Filled.Notifications,
-                        contentDescription = "Notification",
-                        tint = NotifyColor,
+                    BadgedBox(
+                        badge = {
+                            Badge(backgroundColor = BadgeColor) { }
+                        }
+                    ) {
+                        Icon(
+                            Icons.Filled.Notifications,
+                            contentDescription = "Notification",
+                            tint = NotifyColor,
+                            modifier = Modifier
+                                .rotate(10f)
+                                .size(25.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(15.dp))
+
+                    Image(
+                        painter = painterResource(id = R.drawable.artemis_3),
+                        contentDescription = "Profile Icon",
+                        contentScale = ContentScale.Fit,
                         modifier = Modifier
-                            .rotate(10f)
-                            .size(25.dp)
+                            .border(1.dp, Color.White, RoundedCornerShape(10.dp))
+                            .size(40.dp)
+                            .padding(3.dp)
+                            .clip(RoundedCornerShape(7.dp))
                     )
                 }
-
-                Spacer(modifier = Modifier.width(15.dp))
-
-                Image(
-                    painter = painterResource(id = R.drawable.artemis_3),
-                    contentDescription = "Profile Icon",
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .border(1.dp, Color.White, RoundedCornerShape(10.dp))
-                        .size(40.dp)
-                        .padding(3.dp)
-                        .clip(RoundedCornerShape(7.dp))
-                )
             }
         }
+
+
+        Text(
+            text = "Available Balance",
+            color = Color.White.copy(alpha = 0.5f),
+            fontFamily = Poppins,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp
+        )
     }
-
-
 }
 
 @Preview(showBackground = true)

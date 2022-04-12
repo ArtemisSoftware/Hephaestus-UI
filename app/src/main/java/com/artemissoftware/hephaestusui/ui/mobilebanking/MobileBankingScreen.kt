@@ -1,14 +1,13 @@
 package com.artemissoftware.hephaestusui.ui.mobilebanking
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BalanceInfo
+import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BankingOptions
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
 
 @Composable
@@ -19,7 +18,9 @@ fun MobileBankingScreen() {
             .fillMaxSize()
             .background(BankColor)
     ) {
-//        Spacer(modifier = Modifier.height(25.dp))
+
+        Spacer(modifier = Modifier.height(25.dp))
+
         Column(
             modifier = Modifier
                 .weight(0.28f)
@@ -29,125 +30,9 @@ fun MobileBankingScreen() {
 
             BalanceInfo()
 
-//            Text(
-//                text = "Available Balance",
-//                color = Color.White.copy(alpha = 0.5f),
-//                fontFamily = FontFamily(Font(R.font.poppins_light)),
-//                fontSize = 14.sp
-//            )
-//            Spacer(modifier = Modifier.height(15.dp))
-//            Row(
-//                modifier = Modifier.fillMaxWidth()
-//            ) {
-//                Column(
-//                    modifier = Modifier.weight(1f),
-//                    horizontalAlignment = Alignment.CenterHorizontally
-//                ) {
-//                    Column(
-//                        modifier = Modifier
-//                            .clip(RoundedCornerShape(20.dp))
-//                            .background(Color.White)
-//                            .size(65.dp),
-//                        horizontalAlignment = Alignment.CenterHorizontally,
-//                        verticalArrangement = Arrangement.Center
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.send),
-//                            contentDescription = "Send",
-//                            modifier = Modifier.size(35.dp),
-//                            colorFilter = ColorFilter.tint(BankColor)
-//                        )
-//                    }
-//                    Spacer(modifier = Modifier.height(10.dp))
-//                    Text(
-//                        text = "Send",
-//                        color = Color.White.copy(alpha = 0.5f),
-//                        fontFamily = FontFamily(Font(R.font.poppins_light)),
-//                        fontSize = 14.sp
-//                    )
-//                }
-//                Column(
-//                    modifier = Modifier.weight(1f),
-//                    horizontalAlignment = Alignment.CenterHorizontally
-//                ) {
-//                    Column(
-//                        modifier = Modifier
-//                            .clip(RoundedCornerShape(20.dp))
-//                            .background(Color.White)
-//                            .size(65.dp),
-//                        horizontalAlignment = Alignment.CenterHorizontally,
-//                        verticalArrangement = Arrangement.Center
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.request),
-//                            contentDescription = "Request",
-//                            modifier = Modifier.size(35.dp),
-//                            colorFilter = ColorFilter.tint(BankColor)
-//                        )
-//                    }
-//                    Spacer(modifier = Modifier.height(10.dp))
-//                    Text(
-//                        text = "Request",
-//                        color = Color.White.copy(alpha = 0.5f),
-//                        fontFamily = FontFamily(Font(R.font.poppins_light)),
-//                        fontSize = 14.sp
-//                    )
-//                }
-//                Column(
-//                    modifier = Modifier.weight(1f),
-//                    horizontalAlignment = Alignment.CenterHorizontally
-//                ) {
-//                    Column(
-//                        modifier = Modifier
-//                            .clip(RoundedCornerShape(20.dp))
-//                            .background(Color.White)
-//                            .size(65.dp),
-//                        horizontalAlignment = Alignment.CenterHorizontally,
-//                        verticalArrangement = Arrangement.Center
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.loan),
-//                            contentDescription = "Loan",
-//                            modifier = Modifier.size(35.dp),
-//                            colorFilter = ColorFilter.tint(BankColor)
-//                        )
-//                    }
-//                    Spacer(modifier = Modifier.height(10.dp))
-//                    Text(
-//                        text = "Loan",
-//                        color = Color.White.copy(alpha = 0.5f),
-//                        fontFamily = FontFamily(Font(R.font.poppins_light)),
-//                        fontSize = 14.sp
-//                    )
-//                }
-//                Column(
-//                    modifier = Modifier.weight(1f),
-//                    horizontalAlignment = Alignment.CenterHorizontally
-//                ) {
-//                    Column(
-//                        modifier = Modifier
-//                            .clip(RoundedCornerShape(20.dp))
-//                            .background(Color.White)
-//                            .size(65.dp),
-//                        horizontalAlignment = Alignment.CenterHorizontally,
-//                        verticalArrangement = Arrangement.Center
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.top_up),
-//                            contentDescription = "Topup",
-//                            modifier = Modifier.size(35.dp),
-//                            colorFilter = ColorFilter.tint(BankColor)
-//                        )
-//                    }
-//                    Spacer(modifier = Modifier.height(10.dp))
-//                    Text(
-//                        text = "Topup",
-//                        color = Color.White.copy(alpha = 0.5f),
-//                        fontFamily = FontFamily(Font(R.font.poppins_light)),
-//                        fontSize = 14.sp
-//                    )
-//                }
-//            }
+            Spacer(modifier = Modifier.height(15.dp))
+
+            BankingOptions()
         }
 //        Column(
 //            modifier = Modifier
