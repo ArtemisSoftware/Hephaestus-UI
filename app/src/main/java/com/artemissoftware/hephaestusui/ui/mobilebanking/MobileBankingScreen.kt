@@ -8,6 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BalanceInfo
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BankingOptions
+import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.TransactionFilters
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.TransactionHeader
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
 import com.artemissoftware.hephaestusui.ui.theme.BgColor
@@ -49,81 +50,10 @@ fun MobileBankingScreen() {
 
             Spacer(modifier = Modifier.height(5.dp))
 
+            TransactionFilters()
 
-//            Row(
-//                modifier = Modifier.fillMaxWidth()
-//            ) {
-//                Card(
-//                    modifier = Modifier.padding(5.dp),
-//                    elevation = 0.dp,
-//                    backgroundColor = Color.White,
-//                    shape = RoundedCornerShape(15.dp)
-//                ) {
-//                    Text(
-//                        text = "All",
-//                        color = BankColor,
-//                        modifier = Modifier.padding(start = 15.dp, end = 15.dp, top = 5.dp, bottom = 5.dp),
-//                        fontFamily = FontFamily(Font(R.font.poppins_medium)),
-//                        fontSize = 16.sp,
-//                        fontWeight = FontWeight.Bold
-//                    )
-//                }
-//                Card(
-//                    modifier = Modifier.padding(5.dp),
-//                    elevation = 0.dp,
-//                    backgroundColor = Color.White,
-//                    shape = RoundedCornerShape(15.dp)
-//                ) {
-//                    Row(
-//                        modifier = Modifier
-//                            .padding(start = 15.dp, end = 15.dp, top = 5.dp, bottom = 5.dp)
-//                            .alpha(0.4f),
-//                        verticalAlignment = Alignment.CenterVertically
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.arrow_down),
-//                            contentDescription = "Income",
-//                            colorFilter = ColorFilter.tint(GreenColor)
-//                        )
-//                        Spacer(modifier = Modifier.width(5.dp))
-//                        Text(
-//                            text = "Income",
-//                            color = BankColor,
-//                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
-//                            fontSize = 16.sp,
-//                            fontWeight = FontWeight.Bold
-//                        )
-//                    }
-//                }
-//                Card(
-//                    modifier = Modifier.padding(5.dp),
-//                    elevation = 0.dp,
-//                    backgroundColor = Color.White,
-//                    shape = RoundedCornerShape(15.dp)
-//                ) {
-//                    Row(
-//                        modifier = Modifier
-//                            .padding(start = 15.dp, end = 15.dp, top = 5.dp, bottom = 5.dp)
-//                            .alpha(0.4f),
-//                        verticalAlignment = Alignment.CenterVertically
-//                    ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.arrow_up),
-//                            contentDescription = "Expense",
-//                            colorFilter = ColorFilter.tint(BadgeColor)
-//                        )
-//                        Spacer(modifier = Modifier.width(5.dp))
-//                        Text(
-//                            text = "Expense",
-//                            color = BankColor,
-//                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
-//                            fontSize = 16.sp,
-//                            fontWeight = FontWeight.Bold
-//                        )
-//                    }
-//                }
-//            }
-//            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(5.dp))
+
 //            Text(
 //                text = "TODAY",
 //                color = TextColor,
