@@ -7,6 +7,9 @@ App to explore app design in jetpack-compose
     - Daily weather
     - Login
     - Dating (with swipe animation)
+    - Delivery
+    - Onboarding (with splash ui)
+    - Mobile Banking
     
 
 
@@ -32,3 +35,11 @@ Login #1            |  Login #2     |   Login #3
 Dating #1            |  Dating #2
 :-------------------------:|:----------------------------:
 <img src="images/Dating_1.jpg">    |  <img src="images/Dating_2.jpg">   
+
+Delivery #1            |  Delivery #2
+:-------------------------:|:----------------------------:
+<img src="images/Delivery_1.jpg">    |  <img src="images/Delivery_2.jpg">
+
+Onboarding #1            |  Onboarding #2
+:-------------------------:|:----------------------------:
+<img src="images/Onboarding_1.jpg">    |  <img src="images/Onboarding_2.jpg">   
