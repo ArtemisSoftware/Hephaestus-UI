@@ -13,6 +13,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
+import com.artemissoftware.hephaestusui.ui.mobilebanking.MobileBankingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
@@ -41,9 +42,9 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            //HephaestusUIGeneral()
+            HephaestusUIGeneral()
             //HephaestusUILogin()
-            HephaestusUIOnboarding(splashViewModel.startDestination)
+            //HephaestusUIOnboarding(splashViewModel.startDestination)
         }
     }
 }
@@ -61,7 +62,7 @@ fun HephaestusUIGeneral() {
         //SneakerShopScreen()
         //DatingHomeScreen()
         //DeliveryApp()
-
+        MobileBankingApp()
     }
 }
 

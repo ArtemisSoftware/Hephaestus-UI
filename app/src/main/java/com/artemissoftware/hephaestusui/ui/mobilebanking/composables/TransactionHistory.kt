@@ -90,7 +90,7 @@ private fun TransactionItem(transaction: Transaction) {
     ) {
         Column(
             modifier = Modifier.weight(0.2f),
-//            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center
         ) {
             Column(
                 modifier = Modifier
