@@ -6,10 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BalanceInfo
-import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.BankingOptions
-import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.TransactionFilters
-import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.TransactionHeader
+import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.*
+import com.artemissoftware.hephaestusui.ui.mobilebanking.models.Transaction
+import com.artemissoftware.hephaestusui.ui.mobilebanking.models.TransactionGroup
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
 import com.artemissoftware.hephaestusui.ui.theme.BgColor
 
@@ -53,6 +52,9 @@ fun MobileBankingScreen() {
             TransactionFilters()
 
             Spacer(modifier = Modifier.height(5.dp))
+
+
+            TransactionHistory(transactions = TransactionGroup.getMockList())
 
 //            Text(
 //                text = "TODAY",
