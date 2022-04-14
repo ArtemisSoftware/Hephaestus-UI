@@ -3,6 +3,7 @@ package com.artemissoftware.hephaestusui.ui.mobilebanking
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,7 +27,7 @@ fun MobileCardScreen() {
     val contactless = remember { mutableStateOf(false) }
     val payment = remember { mutableStateOf(false) }
     val atm = remember { mutableStateOf(false) }
-    val animatedColor = animateColorAsState(targetValue = Color(0xFF1C478B))
+
 
     Column(
         modifier = Modifier
@@ -49,11 +50,13 @@ fun MobileCardScreen() {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            MobileCards(visaType)
+            LazyColumn {
+                item { MobileCards(visaType) }
+                item { Spacer(modifier = Modifier.height(25.dp)) }
+                item { CardSettings(contactless, payment, atm) }
+                item { Spacer(modifier = Modifier.height(40.dp)) }
+            }
 
-            Spacer(modifier = Modifier.height(25.dp))
-
-            CardSettings(contactless, payment, atm)
         }
     }
 }

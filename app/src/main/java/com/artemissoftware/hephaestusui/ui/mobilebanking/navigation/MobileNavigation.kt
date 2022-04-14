@@ -15,7 +15,7 @@ fun MobileNavigation(navController: NavHostController) {
         startDestination = Screen.Home.route
     ) {
         composable(Screen.Home.route) {
-            MobileBankingScreen()
+            MobileBankingScreen(navController)
         }
         composable(Screen.Cards.route) {
             MobileCardScreen()

@@ -45,7 +45,7 @@ fun MobileCardHeader() {
             )
         }
         Column(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(0.7f)
         ) {
             Icon(
                 imageVector = Icons.Default.MoreVert,

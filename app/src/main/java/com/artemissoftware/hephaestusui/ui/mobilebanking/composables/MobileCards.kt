@@ -1,5 +1,9 @@
 package com.artemissoftware.hephaestusui.ui.mobilebanking.composables
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -76,6 +80,8 @@ private fun CardSelector() {
 @Composable
 private fun MobileCard(visaType: CardType) {
 
+    val animatedColor = animateColorAsState(targetValue = Color(0xFF1C478B))
+
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -84,9 +90,9 @@ private fun MobileCard(visaType: CardType) {
                 .padding(top = 16.dp)
                 .fillMaxWidth()
                 .height(220.dp),
-//            shape = RoundedCornerShape(25.dp),
-//            backgroundColor = animatedColor.value,
-//            elevation = 18.dp
+            shape = RoundedCornerShape(25.dp),
+            backgroundColor = animatedColor.value,
+            elevation = 18.dp
         ) {
             ConstraintLayout(
                 modifier = Modifier.fillMaxSize()
@@ -123,7 +129,7 @@ private fun MobileCard(visaType: CardType) {
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
                     modifier = Modifier
-//                        .animateContentSize(spring())
+                        .animateContentSize(spring())
                         .padding(vertical = 16.dp, horizontal = 16.dp)
                         .constrainAs(number) {
                             linkTo(
@@ -151,13 +157,13 @@ private fun MobileCard(visaType: CardType) {
                         }
                 )
                 Text(
-                    text = "Make it Easy",
+                    text = "Artemis Software",
                     style = MaterialTheme.typography.body1,
                     color = Color.White,
                     fontFamily = Poppins,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
-//                        .animateContentSize(TweenSpec(300))
+                        .animateContentSize(TweenSpec(300))
                         .padding(start = 16.dp, bottom = 16.dp)
                         .constrainAs(cardName) {
                             start.linkTo(parent.start)

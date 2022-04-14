@@ -2,6 +2,7 @@ package com.artemissoftware.hephaestusui.ui.mobilebanking.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Badge
@@ -23,7 +24,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.mobilebanking.navigation.Screen
 import com.artemissoftware.hephaestusui.ui.sneakershop.SneakerCard
 import com.artemissoftware.hephaestusui.ui.sneakershop.models.Sneaker
 import com.artemissoftware.hephaestusui.ui.theme.BadgeColor
@@ -32,7 +36,7 @@ import com.artemissoftware.hephaestusui.ui.theme.NotifyColor
 import com.artemissoftware.hephaestusui.ui.theme.Poppins
 
 @Composable
-fun BalanceInfo() {
+fun BalanceInfo(navController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -90,6 +94,9 @@ fun BalanceInfo() {
                             .size(40.dp)
                             .padding(3.dp)
                             .clip(RoundedCornerShape(7.dp))
+                            .clickable {
+                                navController.navigate(Screen.Cards.route)
+                            }
                     )
                 }
             }
@@ -109,5 +116,6 @@ fun BalanceInfo() {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    BalanceInfo()
+    val navController = rememberNavController()
+    BalanceInfo(navController)
 }

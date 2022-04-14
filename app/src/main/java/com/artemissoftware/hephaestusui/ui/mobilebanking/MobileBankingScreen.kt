@@ -8,14 +8,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.ui.mobilebanking.composables.*
-import com.artemissoftware.hephaestusui.ui.mobilebanking.models.Transaction
 import com.artemissoftware.hephaestusui.ui.mobilebanking.models.TransactionGroup
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
 import com.artemissoftware.hephaestusui.ui.theme.BgColor
 
 @Composable
-fun MobileBankingScreen() {
+fun MobileBankingScreen(navController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -32,7 +33,7 @@ fun MobileBankingScreen() {
                 .padding(start = 20.dp, end = 20.dp)
         ) {
 
-            BalanceInfo()
+            BalanceInfo(navController)
 
             Spacer(modifier = Modifier.height(15.dp))
 
@@ -64,5 +65,6 @@ fun MobileBankingScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    MobileBankingScreen()
+    val navController = rememberNavController()
+    MobileBankingScreen(navController)
 }
