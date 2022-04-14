@@ -16,13 +16,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.hephaestusui.R
-import com.artemissoftware.hephaestusui.ui.mobilebanking.models.TransactionGroup
+import com.artemissoftware.hephaestusui.ui.mobilebanking.navigation.Screen
 import com.artemissoftware.hephaestusui.ui.theme.BankColor
 import com.artemissoftware.hephaestusui.ui.theme.Poppins
 
 @Composable
-fun BottomBar() {
+fun BottomBar(navController: NavHostController) {
 
     BottomNavigation(
         backgroundColor = Color.White,
@@ -30,7 +32,7 @@ fun BottomBar() {
     ) {
         BottomNavigationItem(
             selected = true,
-            onClick = { },
+            onClick = { navController.navigate(Screen.Home.route) },
             alwaysShowLabel = true,
             icon = {
                 Icon(
@@ -85,7 +87,7 @@ fun BottomBar() {
         )
         BottomNavigationItem(
             selected = false,
-            onClick = { },
+            onClick = { navController.navigate(Screen.Cards.route) },
             alwaysShowLabel = true,
             icon = {
                 Icon(
@@ -131,5 +133,6 @@ fun BottomBar() {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    BottomBar()
+    val navController = rememberNavController()
+    BottomBar(navController)
 }
