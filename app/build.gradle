@@ -117,4 +117,12 @@ dependencies {
     //okHttp
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+
+    //Pagination
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha10'
+
+
+    //Coil Image
+    implementation 'com.google.accompanist:accompanist-coil:0.12.0'
 }
