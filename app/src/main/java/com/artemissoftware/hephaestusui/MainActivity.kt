@@ -12,10 +12,12 @@ import androidx.compose.runtime.State
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
-import com.artemissoftware.hephaestusui.ui.mobilebanking.MobileBankingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
+import com.artemissoftware.hephaestusui.ui.people.screens.PeopleScreen
+import com.artemissoftware.hephaestusui.ui.people.screens.PeopleViewModel
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 import com.artemissoftware.hephaestusui.ui.theme.LoginJetpackComposeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -62,7 +64,8 @@ fun HephaestusUIGeneral() {
         //SneakerShopScreen()
         //DatingHomeScreen()
         //DeliveryApp()
-        MobileBankingApp()
+        //MobileBankingApp()
+        PeopleScreen(peopleViewModel = hiltViewModel())
     }
 }
 

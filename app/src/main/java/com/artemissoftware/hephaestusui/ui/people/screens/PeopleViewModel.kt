@@ -9,10 +9,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 
 import androidx.lifecycle.viewModelScope
+import javax.inject.Inject
 
 
 @HiltViewModel
-class PeopleViewModel(
+class PeopleViewModel @Inject constructor(
     private val getPeopleUseCase: GetPeopleUseCase
 ): ViewModel() {
 
