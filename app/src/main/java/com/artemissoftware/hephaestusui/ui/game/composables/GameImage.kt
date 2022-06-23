@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.artemissoftware.hephaestusui.R
 import com.artemissoftware.hephaestusui.ui.game.GameDetailsScreen
+import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
 
 @Composable
 fun GameImage(
@@ -38,5 +39,5 @@ fun GameImage(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    GameImage(image = "https://rawg.io/assets/images/cover@2x.1e0ff948d9c0e7d05e0496c6ffe2e8a8.png")
+    GameImage(image = GameDetail.getMock().backgroundImage)
 }
