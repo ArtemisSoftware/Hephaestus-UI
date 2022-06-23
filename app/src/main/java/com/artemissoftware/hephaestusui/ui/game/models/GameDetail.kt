@@ -2,7 +2,7 @@ package com.artemissoftware.hephaestusui.ui.game.models
 
 data class GameDetail(
 //    val id : Int,
-//    val name: String,
+    val name: String,
 //    val description: String,
 //    val rating: Double,
 //    val released: String,
@@ -19,6 +19,7 @@ data class GameDetail(
     companion object{
 
         fun getMock() = GameDetail(
+            name = "Artemis Hunt",
             backgroundImage = "https://rawg.io/assets/images/cover@2x.1e0ff948d9c0e7d05e0496c6ffe2e8a8.png"
         )
 

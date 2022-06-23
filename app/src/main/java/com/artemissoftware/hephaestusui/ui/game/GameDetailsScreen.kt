@@ -1,6 +1,7 @@
 package com.artemissoftware.hephaestusui.ui.game
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,32 +12,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.artemissoftware.hephaestusui.Greeting
+import com.artemissoftware.hephaestusui.ui.game.composables.GameImage
+import com.artemissoftware.hephaestusui.ui.game.composables.PlayTrailer
+import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 
 @Composable
-fun GameDetailsScreen() {
+fun GameDetailsScreen(gameDetail: GameDetail) {
     Column(
-        //modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
 
-//        GameImage(image = gameDetails.backgroundImage)
-//
-//        PlayTrailer(openGameTrailer = openGameTrailer)
+        GameImage(image = gameDetail.backgroundImage)
 
-//        // Title
-//        Text(
-//            modifier =
-//            Modifier.padding(
-//                start = 16.dp,
-//                top = 30.dp,
-//                end = 16.dp
-//            ),
-//            text = gameDetails.name,
-//            color = Color.Black,
-//            fontWeight = FontWeight.Bold,
-//            fontSize = 20.sp
-//        )
-//
+        PlayTrailer()
+
+        // Title
+        Text(modifier = Modifier.padding(
+                start = 16.dp,
+                top = 30.dp,
+                end = 16.dp
+            ),
+            text = gameDetail.name,
+            color = Color.Black,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp
+        )
+
 //        // Genres
 //        Text(
 //            modifier = Modifier.getDetailsModifier(),
@@ -131,5 +133,5 @@ fun Modifier.getDetailsModifier(): Modifier =
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    GameDetailsScreen()
+    GameDetailsScreen(GameDetail.getMock())
 }
