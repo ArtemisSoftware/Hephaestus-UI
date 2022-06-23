@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.artemissoftware.hephaestusui.Greeting
+import com.artemissoftware.hephaestusui.ui.game.composables.GameDescription
 import com.artemissoftware.hephaestusui.ui.game.composables.GameImage
 import com.artemissoftware.hephaestusui.ui.game.composables.PlayTrailer
 import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
@@ -63,33 +64,8 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
         )
 
         //Description with show more/less toggle
-//        GameDescription(gameDetails.description)
+        GameDescription(gameDetail.description)
 
-        // Platforms info
-        Text(
-            modifier = Modifier.getDetailsModifier(),
-            text = "Platforms",
-            color = Color.Black,
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-        )
-//        Text(
-//            modifier = Modifier.getDetailsModifier(),
-//            text = gameDetails.platformsEntity.toPlatforms()
-//        )
-
-        // Stores
-        Text(
-            modifier = Modifier.getDetailsModifier(),
-            text = "Stores",
-            color = Color.Black,
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp
-        )
-//        Text(
-//            modifier = Modifier.getDetailsModifier(),
-//            text = gameDetails.storesEntity.toStores()
-//        )
 
         // Developer
         Text(
@@ -99,11 +75,10 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp
         )
-//        Text(
-//            modifier = Modifier.getDetailsModifier(),
-//            text =
-//            gameDetails.developersEntity.toDevelopers()
-//        )
+        Text(
+            modifier = Modifier.getDetailsModifier(),
+            text = gameDetail.developer
+        )
 
         // Publisher
         Text(
@@ -113,17 +88,15 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp
         )
-//        Text(
-//            modifier =
-//            Modifier.padding(
-//                start = 16.dp,
-//                top = 8.dp,
-//                end = 16.dp,
-//                bottom = 16.dp
-//            ),
-//            text =
-//            gameDetails.publishersEntity.toPublishers()
-//        )
+        Text(
+            modifier = Modifier.padding(
+                start = 16.dp,
+                top = 8.dp,
+                end = 16.dp,
+                bottom = 16.dp
+            ),
+            text = gameDetail.publisher
+        )
     }
 }
 
