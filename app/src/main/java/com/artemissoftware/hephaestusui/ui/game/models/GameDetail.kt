@@ -20,7 +20,7 @@ data class GameDetail(
                     "\n" +
                     "Artemis was one of the most widely venerated of the Ancient Greek deities, her worship spread throughout ancient Greece, with her multiple temples, altars, shrines, and local veneration found everywhere in the ancient world. Her great temple at Ephesus was one of the Seven Wonders of the Ancient World, before it was burnt to the ground. Artemis' symbols included a bow and arrow, a quiver, and hunting knives, and the deer and the cypress were sacred to her. Diana, her Roman equivalent, was especially worshipped on the Aventine Hill in Rome, near Lake Nemi in the Alban Hills, and in Campania.",
             backgroundImage = "https://i.pinimg.com/originals/61/6e/75/616e757723569cf6cd639d0cc378b9de.jpg",//"https://www.kindpng.com/picc/m/483-4833631_artemis-goddess-of-hunt-draw-hd-png-download.png",
-            developer = "EvilGirls",
+            developer = "EvilArts",
             publisher = "Bow and arrow"
         )
 

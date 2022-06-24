@@ -11,12 +11,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.artemissoftware.hephaestusui.Greeting
 import com.artemissoftware.hephaestusui.ui.game.composables.GameDescription
 import com.artemissoftware.hephaestusui.ui.game.composables.GameImage
 import com.artemissoftware.hephaestusui.ui.game.composables.PlayTrailer
 import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
-import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
 
 @Composable
 fun GameDetailsScreen(gameDetail: GameDetail) {
@@ -42,12 +40,7 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
 
         // About
         Text(
-            modifier =
-            Modifier.padding(
-                start = 16.dp,
-                top = 16.dp,
-                end = 16.dp
-            ),
+            modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp),
             text = "About",
             color = Color.Black,
             fontWeight = FontWeight.Bold,
