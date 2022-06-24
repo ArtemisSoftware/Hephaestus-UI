@@ -10,6 +10,7 @@ App to explore app design in jetpack-compose
     - Delivery
     - Onboarding (with splash ui)
     - Mobile Banking
+    - Game Detail
     
 
 
