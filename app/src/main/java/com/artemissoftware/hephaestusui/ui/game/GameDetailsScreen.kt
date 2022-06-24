@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.artemissoftware.hephaestusui.ui.game.composables.GameDescription
 import com.artemissoftware.hephaestusui.ui.game.composables.GameImage
 import com.artemissoftware.hephaestusui.ui.game.composables.PlayTrailer
@@ -22,9 +23,29 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
         modifier = Modifier.fillMaxSize()
     ) {
 
-        GameImage(image = gameDetail.backgroundImage)
+        ConstraintLayout {
+            val (play, gameImage) = createRefs()
+            // Game image
+            GameImage(
+                image = gameDetail.backgroundImage,
+                modifier = Modifier.constrainAs(gameImage) {
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+            )
 
-        PlayTrailer()
+            // Play button
+            PlayTrailer(
+                modifier = Modifier.constrainAs(play) {
+                    top.linkTo(gameImage.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    bottom.linkTo(gameImage.bottom)
+                }
+            )
+        }
+
 
         // Title
         Text(modifier = Modifier.padding(
