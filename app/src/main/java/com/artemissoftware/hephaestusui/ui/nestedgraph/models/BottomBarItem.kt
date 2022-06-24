@@ -28,4 +28,5 @@ sealed class BottomBarItem(
         title = "SETTINGS",
         icon = Icons.Default.Settings
     )
+
 }
