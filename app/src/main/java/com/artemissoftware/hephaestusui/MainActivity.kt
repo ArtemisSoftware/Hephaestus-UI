@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.artemissoftware.hephaestusui.ui.game.GameDetailsScreen
 import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
+import com.artemissoftware.hephaestusui.ui.nestedgraph.NestedGraphApp
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
 import com.artemissoftware.hephaestusui.ui.people.screens.PeopleScreen
@@ -69,6 +70,7 @@ fun HephaestusUIGeneral() {
         //MobileBankingApp()
         //PeopleScreen(peopleViewModel = hiltViewModel())
         //GameDetailsScreen(gameDetail = GameDetail.getMock())
+        NestedGraphApp()
     }
 }
 

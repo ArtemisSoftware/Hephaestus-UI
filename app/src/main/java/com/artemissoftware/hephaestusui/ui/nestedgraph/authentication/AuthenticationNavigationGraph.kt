@@ -1,10 +1,12 @@
-package com.artemissoftware.hephaestusui.ui.nestedgraph.graphs
+package com.artemissoftware.hephaestusui.ui.nestedgraph.authentication
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.artemissoftware.hephaestusui.ui.nestedgraph.authentication.LoginScreen
+import com.artemissoftware.hephaestusui.ui.nestedgraph.composables.NGGenericScreen
+import com.artemissoftware.hephaestusui.ui.nestedgraph.graphs.Graph
 
 fun NavGraphBuilder.authenticationNavGraph(navController: NavHostController) {
     navigation(
@@ -25,12 +27,12 @@ fun NavGraphBuilder.authenticationNavGraph(navController: NavHostController) {
                 }
             )
         }
-//        composable(route = AuthScreen.SignUp.route) {
-//            ScreenContent(name = AuthScreen.SignUp.route) {}
-//        }
-//        composable(route = AuthScreen.Forgot.route) {
-//            ScreenContent(name = AuthScreen.Forgot.route) {}
-//        }
+        composable(route = AuthScreen.SignUp.route) {
+            NGGenericScreen(name = AuthScreen.SignUp.route) {}
+        }
+        composable(route = AuthScreen.Forgot.route) {
+            NGGenericScreen(name = AuthScreen.Forgot.route) {}
+        }
     }
 }
 
