@@ -13,6 +13,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.artemissoftware.hephaestusui.ui.game.GameDetailsScreen
+import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
@@ -65,7 +67,8 @@ fun HephaestusUIGeneral() {
         //DatingHomeScreen()
         //DeliveryApp()
         //MobileBankingApp()
-        PeopleScreen(peopleViewModel = hiltViewModel())
+        //PeopleScreen(peopleViewModel = hiltViewModel())
+        GameDetailsScreen(gameDetail = GameDetail.getMock())
     }
 }
 

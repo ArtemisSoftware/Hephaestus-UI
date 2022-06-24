@@ -40,15 +40,6 @@ fun GameDetailsScreen(gameDetail: GameDetail) {
             fontSize = 20.sp
         )
 
-//        // Genres
-//        Text(
-//            modifier = Modifier.getDetailsModifier(),
-//            text = gameDetails.genresEntity.toGenres()
-//        )
-//
-//        // Released and rating info
-//        ReleaseRating()
-
         // About
         Text(
             modifier =
