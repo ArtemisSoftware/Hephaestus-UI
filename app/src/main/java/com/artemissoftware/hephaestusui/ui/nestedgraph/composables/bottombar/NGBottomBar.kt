@@ -20,8 +20,7 @@ fun NGBottomBar(navController: NavHostController) {
 
     with(NGBottomBarTabs){
 
-        val bottomBarDestination = TABS.any { it.route == currentDestination?.route }
-        if (bottomBarDestination) {
+        if (showBottomBar(currentDestination)) {
             BottomNavigation {
                 TABS.forEach { tab ->
                     AddItem(
@@ -36,8 +35,12 @@ fun NGBottomBar(navController: NavHostController) {
 
 }
 
+
+
+private fun showBottomBar(currentDestination: NavDestination?) = NGBottomBarTabs.TABS.any { it.route == currentDestination?.route }
+
 @Composable
-fun RowScope.AddItem(
+private fun RowScope.AddItem(
     item: BottomBarItem,
     currentDestination: NavDestination?,
     navController: NavHostController

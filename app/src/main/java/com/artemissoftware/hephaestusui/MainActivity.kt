@@ -68,7 +68,7 @@ fun HephaestusUIGeneral() {
         //DeliveryApp()
         //MobileBankingApp()
         //PeopleScreen(peopleViewModel = hiltViewModel())
-        GameDetailsScreen(gameDetail = GameDetail.getMock())
+        //GameDetailsScreen(gameDetail = GameDetail.getMock())
     }
 }
 
