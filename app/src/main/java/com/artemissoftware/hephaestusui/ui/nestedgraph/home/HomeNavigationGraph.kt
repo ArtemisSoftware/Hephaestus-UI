@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.artemissoftware.hephaestusui.ui.nestedgraph.composables.NGGenericScreen
+import com.artemissoftware.hephaestusui.ui.nestedgraph.details.detailsNavigationGraph
 import com.artemissoftware.hephaestusui.ui.nestedgraph.graphs.Graph
 import com.artemissoftware.hephaestusui.ui.nestedgraph.models.BottomBarItem
 
@@ -39,6 +40,6 @@ fun HomeNavigationGraph(navController: NavHostController) {
             )
         }
 
-        //detailsNavGraph(navController = navController)
+        detailsNavigationGraph(navController = navController)
     }
 }

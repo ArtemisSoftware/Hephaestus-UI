@@ -11,33 +11,33 @@ import com.artemissoftware.hephaestusui.ui.nestedgraph.graphs.Graph
 fun NavGraphBuilder.authenticationNavGraph(navController: NavHostController) {
     navigation(
         route = Graph.AUTHENTICATION,
-        startDestination = AuthScreen.Login.route
+        startDestination = AuthDestinationScreen.Login.route
     ) {
-        composable(route = AuthScreen.Login.route) {
+        composable(route = AuthDestinationScreen.Login.route) {
             LoginScreen(
                 onClick = {
                     navController.popBackStack()
                     navController.navigate(Graph.HOME)
                 },
                 onSignUpClick = {
-                    navController.navigate(AuthScreen.SignUp.route)
+                    navController.navigate(AuthDestinationScreen.SignUp.route)
                 },
                 onForgotClick = {
-                    navController.navigate(AuthScreen.Forgot.route)
+                    navController.navigate(AuthDestinationScreen.Forgot.route)
                 }
             )
         }
-        composable(route = AuthScreen.SignUp.route) {
-            NGGenericScreen(name = AuthScreen.SignUp.route, icon = R.drawable.artemis_2) {}
+        composable(route = AuthDestinationScreen.SignUp.route) {
+            NGGenericScreen(name = AuthDestinationScreen.SignUp.route, icon = R.drawable.artemis_2) {}
         }
-        composable(route = AuthScreen.Forgot.route) {
-            NGGenericScreen(name = AuthScreen.Forgot.route) {}
+        composable(route = AuthDestinationScreen.Forgot.route) {
+            NGGenericScreen(name = AuthDestinationScreen.Forgot.route) {}
         }
     }
 }
 
-sealed class AuthScreen(val route: String) {
-    object Login : AuthScreen(route = "LOGIN")
-    object SignUp : AuthScreen(route = "SIGN_UP")
-    object Forgot : AuthScreen(route = "FORGOT")
+sealed class AuthDestinationScreen(val route: String) {
+    object Login : AuthDestinationScreen(route = "LOGIN")
+    object SignUp : AuthDestinationScreen(route = "SIGN_UP")
+    object Forgot : AuthDestinationScreen(route = "FORGOT")
 }
