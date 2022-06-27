@@ -11,7 +11,7 @@ App to explore app design in jetpack-compose
     - Onboarding (with splash ui)
     - Mobile Banking
     - Game Detail
-    
+    - Nested Navigation 
 
 
 ## App preview:
