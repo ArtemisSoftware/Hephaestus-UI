@@ -10,7 +10,8 @@ App to explore app design in jetpack-compose
     - Delivery
     - Onboarding (with splash ui)
     - Mobile Banking
-    - Game Detail
+    - Game Detail 
+        - show more, custom image shape
     - Nested Navigation 
 
 
@@ -44,3 +45,7 @@ Delivery #1            |  Delivery #2
 Onboarding #1            |  Onboarding #2
 :-------------------------:|:----------------------------:
 <img src="images/Onboarding_1.jpg">    |  <img src="images/Onboarding_2.jpg">   
+
+Game Detail #1            |  Game Detail #2
+:-------------------------:|:----------------------------:
+<img src="images/Game_Detail_1.jpg">    |  <img src="images/Game_Detail_2.jpg">   
