@@ -13,6 +13,7 @@ App to explore app design in jetpack-compose
     - Game Detail 
         - show more, custom image shape
     - Nested Navigation 
+    - Multi-Select
 
 
 ## App preview:
