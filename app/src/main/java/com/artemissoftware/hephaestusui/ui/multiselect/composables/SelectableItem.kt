@@ -60,8 +60,8 @@ fun SelectableItem(
 
 //    val scaleA = remember { Animatable(initialValue = 1f) }
 //    val scaleB = remember { Animatable(initialValue = 1f) }
-//
-//    val clickEnabled = remember { mutableStateOf(true) }
+
+    val clickEnabled = remember { mutableStateOf(true) }
 
     LaunchedEffect(key1 = selected) {
 //        if (selected) {
@@ -112,10 +112,10 @@ fun SelectableItem(
                 color = borderColor,
                 shape = borderShape
             )
-//            .clip(borderShape)
-//            .clickable(enabled = clickEnabled.value) {
-//                onClick()
-//            }
+            .clip(borderShape)
+            .clickable(enabled = clickEnabled.value) {
+                onClick()
+            }
     ) {
         Row(
             modifier = Modifier.padding(start = 12.dp),
@@ -137,9 +137,9 @@ fun SelectableItem(
 //                    .weight(2f)
                     /*.scale(scale = scaleA.value)*/,
                 onClick = {
-//                    if (clickEnabled.value) {
-//                        onClick()
-//                    }
+                    if (clickEnabled.value) {
+                        onClick()
+                    }
                 }
             ) {
                 Icon(
@@ -154,7 +154,7 @@ fun SelectableItem(
                 modifier = Modifier
                     .padding(horizontal = 12.dp)
                     .padding(bottom = 12.dp),
-                text = "subtitle",
+                text = subtitle,
                 style = TextStyle(
                     color = subtitleColor
                 ),

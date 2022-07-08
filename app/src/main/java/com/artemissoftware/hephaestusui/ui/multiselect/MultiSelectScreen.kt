@@ -30,12 +30,36 @@ fun MultiSelectScreen() {
 
                 SelectItem(
                     title = "Item $it",
-                    subtitle="Subtitle od item $it",
+                    subtitle="Subtitle of item $it",
                     isSelected = false
                 )
 
             }
         )
+    }
+
+
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+        items(items.size) { i ->
+
+            SelectableItem(
+                selected = items[i].isSelected,
+                title = items[i].title,
+                subtitle = items[i].subtitle,
+                onClick = {
+                    items = items.mapIndexed { j, item ->
+                        if(i == j) {
+                            item.copy(isSelected = !item.isSelected)
+                        } else item
+                    }
+                }
+            )
+
+        }
     }
 
 
