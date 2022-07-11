@@ -58,55 +58,55 @@ fun SelectableItem(
     val iconColor: Color = if (selected) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
 
 
-//    val scaleA = remember { Animatable(initialValue = 1f) }
-//    val scaleB = remember { Animatable(initialValue = 1f) }
+    val scaleA = remember { Animatable(initialValue = 1f) }
+    val scaleB = remember { Animatable(initialValue = 1f) }
 
     val clickEnabled = remember { mutableStateOf(true) }
 
     LaunchedEffect(key1 = selected) {
-//        if (selected) {
-//            clickEnabled.value = false
-//
-//            val jobA = launch {
-//                scaleA.animateTo(
-//                    targetValue = 0.3f,
-//                    animationSpec = tween(
-//                        durationMillis = 50
-//                    )
-//                )
-//                scaleA.animateTo(
-//                    targetValue = 1f,
-//                    animationSpec = spring(
-//                        dampingRatio = Spring.DampingRatioLowBouncy,
-//                        stiffness = Spring.StiffnessLow
-//                    )
-//                )
-//            }
-//            val jobB = launch {
-//                scaleB.animateTo(
-//                    targetValue = 0.9f,
-//                    animationSpec = tween(
-//                        durationMillis = 50
-//                    )
-//                )
-//                scaleB.animateTo(
-//                    targetValue = 1f,
-//                    animationSpec = spring(
-//                        dampingRatio = Spring.DampingRatioLowBouncy,
-//                        stiffness = Spring.StiffnessLow
-//                    )
-//                )
-//            }
-//
-//            jobA.join()
-//            jobB.join()
-//            clickEnabled.value = true
-//        }
+        if (selected) {
+            clickEnabled.value = false
+
+            val jobA = launch {
+                scaleA.animateTo(
+                    targetValue = 0.3f,
+                    animationSpec = tween(
+                        durationMillis = 50
+                    )
+                )
+                scaleA.animateTo(
+                    targetValue = 1f,
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioLowBouncy,
+                        stiffness = Spring.StiffnessLow
+                    )
+                )
+            }
+            val jobB = launch {
+                scaleB.animateTo(
+                    targetValue = 0.9f,
+                    animationSpec = tween(
+                        durationMillis = 50
+                    )
+                )
+                scaleB.animateTo(
+                    targetValue = 1f,
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioLowBouncy,
+                        stiffness = Spring.StiffnessLow
+                    )
+                )
+            }
+
+            jobA.join()
+            jobB.join()
+            clickEnabled.value = true
+        }
     }
 
     Column(
         modifier = modifier
-//            .scale(scale = scaleB.value)
+            .scale(scale = scaleB.value)
             .border(
                 width = borderWidth,
                 color = borderColor,
@@ -134,8 +134,8 @@ fun SelectableItem(
             )
             IconButton(
                 modifier = Modifier
-//                    .weight(2f)
-                    /*.scale(scale = scaleA.value)*/,
+                    .weight(2f)
+                    .scale(scale = scaleA.value),
                 onClick = {
                     if (clickEnabled.value) {
                         onClick()

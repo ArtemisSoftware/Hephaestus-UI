@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.hephaestusui.ui.multiselect.composables.SelectableItem
 import com.artemissoftware.hephaestusui.ui.multiselect.models.SelectItem
@@ -30,7 +31,7 @@ fun MultiSelectScreen() {
 
                 SelectItem(
                     title = "Item $it",
-                    subtitle="Subtitle of item $it",
+                    subtitle=getLoremIpsum(it),
                     isSelected = false
                 )
 
@@ -63,6 +64,10 @@ fun MultiSelectScreen() {
     }
 
 
+}
+
+private fun getLoremIpsum(count: Int = 2): String {
+    return LoremIpsum(count).values.first()
 }
 
 @Preview(showBackground = true)
