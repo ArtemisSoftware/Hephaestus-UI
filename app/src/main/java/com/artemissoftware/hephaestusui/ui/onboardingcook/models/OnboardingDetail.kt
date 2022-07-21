@@ -15,7 +15,6 @@ data class OnboardingDetail(
 
     companion object{
 
-
         val mockOnboardingDetailList = listOf(
 
             OnboardingDetail(

@@ -14,6 +14,7 @@ App to explore app design in jetpack-compose
         - show more, custom image shape
     - Nested Navigation 
     - Multi-Select
+    - Onboarding cook
 
 
 ## App preview:
