@@ -64,3 +64,7 @@ val BgColor = Color(0xFFF6F8FB)
 val GreenColor = Color(0xFF34B27C)
 val TextColor = Color(0xFFB0BFCF)
 val ItemBgColor = Color(0xFFF6F7F9)
+
+val ColorBlue = Color(0xFF008AC3)
+val ColorYellow = Color(0xFFFAD206)
+val ColorGreen = Color(0xFF8DDD66)
