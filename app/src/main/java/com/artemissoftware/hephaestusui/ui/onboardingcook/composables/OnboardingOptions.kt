@@ -16,10 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.artemissoftware.hephaestusui.R
+import com.artemissoftware.hephaestusui.ui.onboardingcook.models.OnboardingDetail
 import com.artemissoftware.hephaestusui.ui.theme.Poppins
 
 @Composable
-fun OnboardingSkipOption() {
+private fun OnboardingSkipOption(onboardingDetail: OnboardingDetail) {
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -43,16 +44,16 @@ fun OnboardingSkipOption() {
             onClick = { /* Do something! */ },
             border = BorderStroke(
                 14.dp,
-                Color(0xFF292D32)//                item[pagerState.currentPage].mainColor
+                onboardingDetail.mainColor
             ),
             shape = CircleShape,
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Red/*item[pagerState.currentPage].mainColor*/),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = onboardingDetail.mainColor),
             modifier = Modifier.size(65.dp)
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_right_arrow),
                 contentDescription = "",
-//                tint = item[pagerState.currentPage].mainColor,
+                tint = onboardingDetail.mainColor,
                 modifier = Modifier.size(20.dp)
             )
         }
@@ -63,12 +64,12 @@ fun OnboardingSkipOption() {
 @Preview(showBackground = true)
 @Composable
 private fun OnboardingSkipOptionPreview() {
-    OnboardingSkipOption()
+    OnboardingSkipOption(OnboardingDetail.mockOnboardingDetailList[0])
 }
 
 
 @Composable
-fun OnboardingStartOption() {
+private fun OnboardingStartOption(onboardingDetail: OnboardingDetail) {
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -82,7 +83,7 @@ fun OnboardingStartOption() {
             },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color(0xFF292D32)//  item[pagerState.currentPage].mainColor
+                backgroundColor = onboardingDetail.mainColor
             ),
             contentPadding = PaddingValues(vertical = 12.dp),
             elevation = ButtonDefaults.elevation(
@@ -100,10 +101,16 @@ fun OnboardingStartOption() {
 
 }
 
+
+
+
 @Preview(showBackground = true)
 @Composable
 private fun OnboardingStartOptionPreview() {
-    OnboardingStartOption()
+    OnboardingStartOption(OnboardingDetail.mockOnboardingDetailList[0])
 }
 
-
+@Composable
+fun OnboardingOptions(onboardingDetail: OnboardingDetail){
+    OnboardingSkipOption(onboardingDetail)
+}
