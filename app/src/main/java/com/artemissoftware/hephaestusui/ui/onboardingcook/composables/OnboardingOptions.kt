@@ -1,10 +1,7 @@
 package com.artemissoftware.hephaestusui.ui.onboardingcook.composables
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -68,3 +65,45 @@ fun OnboardingSkipOption() {
 private fun OnboardingSkipOptionPreview() {
     OnboardingSkipOption()
 }
+
+
+@Composable
+fun OnboardingStartOption() {
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
+
+        Button(
+            onClick = {
+                //show home screen
+            },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color(0xFF292D32)//  item[pagerState.currentPage].mainColor
+            ),
+            contentPadding = PaddingValues(vertical = 12.dp),
+            elevation = ButtonDefaults.elevation(
+                defaultElevation = 0.dp
+            )
+        ) {
+            Text(
+                text = "Get Started",
+                color = Color.White,
+                fontSize = 16.sp
+            )
+        }
+
+    }
+
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OnboardingStartOptionPreview() {
+    OnboardingStartOption()
+}
+
+
