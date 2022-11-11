@@ -20,7 +20,26 @@ import com.artemissoftware.hephaestusui.ui.onboardingcook.models.OnboardingDetai
 import com.artemissoftware.hephaestusui.ui.theme.Poppins
 
 @Composable
-private fun OnboardingSkipOption(onboardingDetail: OnboardingDetail) {
+fun OnboardingOptions(
+    onboardingDetail: OnboardingDetail,
+    isLastPage: Boolean,
+    onNextClick: () -> Unit,
+){
+    if(isLastPage){
+        OnboardingStartOption(onboardingDetail = onboardingDetail)
+    }
+    else{
+        OnboardingSkipOption(onboardingDetail, onNextClick = onNextClick)
+    }
+}
+
+
+
+@Composable
+private fun OnboardingSkipOption(
+    onboardingDetail: OnboardingDetail,
+    onNextClick: () -> Unit
+) {
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -41,7 +60,7 @@ private fun OnboardingSkipOption(onboardingDetail: OnboardingDetail) {
 
 
         OutlinedButton(
-            onClick = { /* Do something! */ },
+            onClick = onNextClick,
             border = BorderStroke(
                 14.dp,
                 onboardingDetail.mainColor
@@ -64,7 +83,7 @@ private fun OnboardingSkipOption(onboardingDetail: OnboardingDetail) {
 @Preview(showBackground = true)
 @Composable
 private fun OnboardingSkipOptionPreview() {
-    OnboardingSkipOption(OnboardingDetail.mockOnboardingDetailList[0])
+    OnboardingSkipOption(OnboardingDetail.mockOnboardingDetailList[0], onNextClick = {})
 }
 
 
@@ -110,7 +129,3 @@ private fun OnboardingStartOptionPreview() {
     OnboardingStartOption(OnboardingDetail.mockOnboardingDetailList[0])
 }
 
-@Composable
-fun OnboardingOptions(onboardingDetail: OnboardingDetail){
-    OnboardingSkipOption(onboardingDetail)
-}

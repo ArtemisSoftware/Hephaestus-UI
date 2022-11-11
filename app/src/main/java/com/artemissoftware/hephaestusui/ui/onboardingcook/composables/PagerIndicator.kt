@@ -18,10 +18,7 @@ fun PagerIndicator(
     color: Color
 ) {
 
-    Row(
-//        horizontalArrangement = Arrangement.SpaceBetween,
-//        modifier = Modifier.padding(top = 20.dp)
-    ) {
+    Row {
         repeat(numberOfPages) {
             Indicator(isSelected = (currentPage == it), color = color)
         }

@@ -20,6 +20,7 @@ import com.artemissoftware.hephaestusui.ui.multiselect.MultiSelectScreen
 import com.artemissoftware.hephaestusui.ui.nestedgraph.NestedGraphApp
 import com.artemissoftware.hephaestusui.ui.onboarding.OnboardingApp
 import com.artemissoftware.hephaestusui.ui.onboarding.screens.SplashViewModel
+import com.artemissoftware.hephaestusui.ui.onboardingcook.OnboardingCookScreen
 import com.artemissoftware.hephaestusui.ui.people.screens.PeopleScreen
 import com.artemissoftware.hephaestusui.ui.people.screens.PeopleViewModel
 import com.artemissoftware.hephaestusui.ui.theme.HephaestusUITheme
@@ -72,7 +73,8 @@ fun HephaestusUIGeneral() {
         //PeopleScreen(peopleViewModel = hiltViewModel())
         //GameDetailsScreen(gameDetail = GameDetail.getMock())
         //NestedGraphApp()
-        MultiSelectScreen()
+        //MultiSelectScreen()
+        OnboardingCookScreen()
     }
 }
 

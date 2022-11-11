@@ -3,11 +3,10 @@ package com.artemissoftware.hephaestusui.ui.onboardingcook
 import androidx.annotation.FloatRange
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.gestures.scrollBy
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,6 +18,8 @@ import com.artemissoftware.hephaestusui.ui.theme.ColorBlue
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -26,12 +27,8 @@ fun OnboardingCookScreen() {
 
     val items = OnboardingDetail.mockOnboardingDetailList
 
-    val pagerState = rememberPagerState(
-        pageCount = items.size,
-        initialOffscreenLimit = 2,
-        infiniteLoop = false,
-        initialPage = 0,
-    )
+    val pagerState = rememberPagerState()
+    val scope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier
@@ -46,8 +43,8 @@ fun OnboardingCookScreen() {
                     modifier = Modifier
                         .fillMaxSize()
                         .background(items[page].backgroundColor),
-//                    horizontalAlignment = Alignment.CenterHorizontally,
-//                    verticalArrangement = Arrangement.Top
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Top
                 ) {
 
                     Image(
@@ -56,11 +53,8 @@ fun OnboardingCookScreen() {
                         modifier = Modifier
                             .fillMaxWidth()
                     )
-
-
                 }
             }
-
         }
 
         Box(
@@ -70,30 +64,20 @@ fun OnboardingCookScreen() {
             OnboardingCard(
                 onboardingDetail = items[pagerState.currentPage],
                 numberOfPages = pagerState.pageCount,
-                currentPage = pagerState.currentPage
+                currentPage = pagerState.currentPage,
+                onNextClick = {
+
+                    scope.launch {
+                        pagerState.scrollToPage(pagerState.currentPage + 1)
+                    }
+                }
             )
         }
     }
 
 }
 
-@ExperimentalPagerApi
-@Composable
-fun rememberPagerState(
-    @androidx.annotation.IntRange(from = 0) pageCount: Int,
-    @androidx.annotation.IntRange(from = 0) initialPage: Int = 0,
-    @FloatRange(from = 0.0, to = 1.0) initialPageOffset: Float = 0f,
-    @androidx.annotation.IntRange(from = 1) initialOffscreenLimit: Int = 1,
-    infiniteLoop: Boolean = false
-): PagerState = rememberSaveable(saver = PagerState.Saver) {
-    PagerState(
-//        pageCount = pageCount,
-        currentPage = initialPage,
-//        currentPageOffset = initialPageOffset,
-//        offscreenLimit = initialOffscreenLimit,
-//        infiniteLoop = infiniteLoop
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
