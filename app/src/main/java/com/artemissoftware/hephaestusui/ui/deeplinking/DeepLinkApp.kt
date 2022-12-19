@@ -14,30 +14,39 @@ fun DeepLinkApp() {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(
+        navController = navController,
+        startDestination = "home"
+    ) {
 
         composable("home") {
-            HomeDeepLinkScreen(navController)
-        }
-
-        composable(
-            route = "detail",
-            deepLinks = listOf(
-                navDeepLink {
-                    uriPattern = "https://pl-coding.com/{id}"
-                    action = Intent.ACTION_VIEW
-                }
-            ),
-            arguments = listOf(
-                navArgument("id") {
-                    type = NavType.IntType
-                    defaultValue = -1
-                }
+            HomeDeepLinkScreen(navController,
+                //"detail"
+                "Second_One"
             )
-        ) { entry ->
-
-            val id = entry.arguments?.getInt("id")
-            DetailDeepLinkScreen(id)
         }
+
+//        composable(
+//            route = "detail",
+//            deepLinks = listOf(
+//                navDeepLink {
+//                    uriPattern = "https://pl-coding.com/{id}"
+//                    action = Intent.ACTION_VIEW
+//                }
+//            ),
+//            arguments = listOf(
+//                navArgument("id") {
+//                    type = NavType.IntType
+//                    defaultValue = -1
+//                }
+//            )
+//        ) { entry ->
+//
+//            val id = entry.arguments?.getInt("id")
+//            DetailDeepLinkScreen(id)
+//        }
+
+
+        secondGraph(navController = navController)
     }
 }

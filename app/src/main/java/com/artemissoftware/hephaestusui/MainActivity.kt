@@ -13,6 +13,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.artemissoftware.hephaestusui.ui.deeplinking.DeepLinkApp
 import com.artemissoftware.hephaestusui.ui.game.GameDetailsScreen
 import com.artemissoftware.hephaestusui.ui.game.models.GameDetail
 import com.artemissoftware.hephaestusui.ui.login.navigation.LoginNavigation
@@ -74,7 +75,8 @@ fun HephaestusUIGeneral() {
         //GameDetailsScreen(gameDetail = GameDetail.getMock())
         //NestedGraphApp()
         //MultiSelectScreen()
-        OnboardingCookScreen()
+        //OnboardingCookScreen()
+        DeepLinkApp()
     }
 }
 
